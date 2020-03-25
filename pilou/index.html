@@ -56,55 +56,43 @@
   }
 
   function play() {
-    for(let i=0; i < instruments.length; i++)
-    {
-      let instrument = instruments[i].id
-      let enabled = document.getElementById("toggle-"+instrument).checked
-      if(enabled)
+    surfers.forEach(function (surfer, instrument) {
+      if(document.getElementById("toggle-"+instrument).checked)
       {
-        //document.getElementById("audio-"+instrument).play()
-        surfers.get(instrument).play()
+        surfer.play()
       }
-    }
+    })
     document.getElementById("playButton").innerHTML = "Pause"
     playing = true
   }
 
   function pause() {
-    for(let i=0; i < instruments.length; i++)
-    {
-      let instrument = instruments[i].id
-      //document.getElementById("audio-"+instrument).pause()
-      surfers.get(instrument).pause()
-    }
+    surfers.forEach( function(surfer) { surfer.pause() })
     document.getElementById("playButton").innerHTML = "Play"
     playing = false
   }
 
   function playPause() {
-    if(playing)
-    {
-      pause()
-    } else {
+    if( !playing ) {
       play()
     }
+    else {
+      pause()
+    }
+  }
+
+  function seekTo(progress) {
+    surfers.forEach(function(surfer) {
+      let currentProgress = surfer.getCurrentTime()/surfer.getDuration()
+      if(Math.abs(currentProgress-progress) > 0.01) { // avoid recursive events
+        surfer.seekTo(progress)
+      }
+    })
   }
 
   function stop() {
     pause()
     seekTo(0)
-  }
-
-  function seekTo(progress) {
-    for(let i=0; i < instruments.length; i++)
-    {
-      let surfer = surfers.get(instruments[i].id)
-      let currentProgress = surfer.getCurrentTime()/surfer.getDuration()
-
-      if(Math.abs(currentProgress-progress) > 0.01) { // avoid recursive events
-        surfer.seekTo(progress)
-      }
-    }
   }
 
   </script>
