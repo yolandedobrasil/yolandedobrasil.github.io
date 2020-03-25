@@ -8,8 +8,12 @@
     Jukebox Yolande
   </h1>
   <h2>Pilou pilou</h2>
+  
+  <button onclick="stop()">Stop</button>
+  <button onclick="skipBackward()"><<</button>
   <button id="playButton" onclick="playPause()">Play</button>
-  <button id="stopButton" onclick="stop()">Stop</button>
+  <button onclick="skipForward()">>></button>
+
   <div id="mestre" class="track">
     <input type="checkbox" id="toggle-mestre" checked>
     <label for="toggle-mestre">Mestre</label>
@@ -48,7 +52,8 @@
       container: '#'+instrument,
       waveColor: 'violet',
       progressColor: 'purple',
-      responsive: true
+      responsive: true,
+      skipLength: 0.5
     });
     wavesurfer.load(instrument+'.mp3');
     wavesurfer.on('seek', function (progress) { seekTo(progress) })
@@ -95,10 +100,26 @@
     seekTo(0)
   }
 
+  function skipBackward() {
+    surfers.forEach(function(surfer){surfer.skipBackward()})
+  }
+
+  function skipForward() {
+    surfers.forEach(function(surfer){surfer.skipForward()})
+  }
+
   function handleKeypress(e) {
     switch(e.which) {
       case 32: // space
         playPause()
+        e.preventDefault()
+        break
+      case 39: // right arrow
+        skipForward()
+        e.preventDefault()
+        break
+      case 37: // left arrow
+        skipBackward()
         e.preventDefault()
         break
     }
