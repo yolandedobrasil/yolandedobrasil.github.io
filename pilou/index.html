@@ -14,6 +14,9 @@
   <button id="playButton" onclick="playPause()">Play</button>
   <button onclick="skipForward()">>></button>
 
+  <label for="speed">Speed :</label>
+  <input type="range" id="speedInput" name="speed" min="0.5" max="1.5" step="0.1" value="1" onchange="setSpeed(this.value)">
+
   <div id="mestre" class="track">
     <input type="checkbox" id="toggle-mestre" checked>
     <label for="toggle-mestre">Mestre</label>
@@ -41,6 +44,7 @@
   <script src="https://unpkg.com/wavesurfer.js"></script>
   <script type="text/javascript">
   let playing = false
+  let speedInput = document.getElementById("speedInput")
   let instruments = document.getElementsByClassName("track")
   const surfers = new Map()
 
@@ -108,6 +112,23 @@
     surfers.forEach(function(surfer){surfer.skipForward()})
   }
 
+  function setSpeed(speed) {
+    console.log(speed)
+    surfers.forEach(function(surfer){surfer.setPlaybackRate(speed)})
+  }
+
+  function accelerate() {
+    let speed = Number(speedInput.value)
+    speedInput.value = speed + 0.1
+    speedInput.dispatchEvent(new Event('change'))
+  }
+
+  function slowdown() {
+    let speed = Number(speedInput.value)
+    speedInput.value = speed - 0.1
+    speedInput.dispatchEvent(new Event('change'))
+  }
+
   function handleKeypress(e) {
     switch(e.which) {
       case 32: // space
@@ -120,6 +141,14 @@
         break
       case 37: // left arrow
         skipBackward()
+        e.preventDefault()
+        break
+      case 38: // up arrow
+        accelerate()
+        e.preventDefault()
+        break
+      case 40: // down arrow
+        slowdown()
         e.preventDefault()
         break
     }
