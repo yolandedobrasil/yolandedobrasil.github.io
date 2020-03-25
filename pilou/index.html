@@ -4,78 +4,109 @@
   <title>Jukebox Yolande</title>
 </head>
 <body>
-  <script type="text/javascript">
-  let playing = false
-  let instruments = document.getElementsByClassName("track")
-    
-  function play() {
-    if(playing) {
-      for(let i=0; i < instruments.length; i++){
-        let audio = document.getElementById("audio-"+instruments[i].id)
-        audio.pause()
-        audio.fastSeek(0)
-      }
-      document.getElementById("playButton").innerHTML = "Play"
-      playing = false
-    } else {
-      for(let i=0; i < instruments.length; i++){
-        let instrument = instruments[i].id
-        let enabled = document.getElementById("toggle-"+instrument).checked
-        if(enabled){
-          document.getElementById("audio-"+instrument).play()
-        }
-      }
-      document.getElementById("playButton").innerHTML = "Pause"
-      playing = true
-    }
-  }
-  </script>
   <h1>
     Jukebox Yolande
   </h1>
   <h2>Pilou pilou</h2>
-  <button id="playButton" onclick="play()">Play</button>
+  <button id="playButton" onclick="playPause()">Play</button>
+  <button id="stopButton" onclick="stop()">Stop</button>
   <div id="mestre" class="track">
     <input type="checkbox" id="toggle-mestre" checked>
     <label for="toggle-mestre">Mestre</label>
-    <audio id="audio-mestre">
-      <source src="mestre.mp3" preload="auto" >
-    </audio>
   </div>
   <div id="tamborim" class="track">
     <input type="checkbox" id="toggle-tamborim" checked>
     <label for="toggle-tamborim">Tamborim</label>
-    <audio id="audio-tamborim">
-      <source src="tamborim.mp3" preload="auto" >
-    </audio>
   </div>
   <div id="caisse" class="track">
     <input type="checkbox" id="toggle-caisse" checked>
     <label for="toggle-caisse">Caisse</label>
-    <audio id="audio-caisse">
-      <source src="caisse.mp3" preload="auto" >
-    </audio>
   </div>
   <div id="repique" class="track">
     <input type="checkbox" id="toggle-repique" checked>
     <label for="toggle-repique">Repique</label>
-    <audio id="audio-repique">
-      <source src="repique.mp3" preload="auto" >
-    </audio>
   </div>
   <div id="surdo12" class="track">
     <input type="checkbox" id="toggle-surdo12" checked>
     <label for="toggle-surdo12">Surdo12</label>
-    <audio id="audio-surdo12">
-      <source src="surdo12.mp3" preload="auto" >
-    </audio>
   </div>
   <div id="surdo3" class="track">
     <input type="checkbox" id="toggle-surdo3" checked>
     <label for="toggle-surdo3">Surdo3</label>
-    <audio id="audio-surdo3">
-      <source src="surdo3.mp3" preload="auto" >
-    </audio>
   </div>
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+  <script type="text/javascript">
+  let playing = false
+  let instruments = document.getElementsByClassName("track")
+  const surfers = new Map()
+
+  // init waveforms
+  for (let i = 0; i < instruments.length; i++) {
+    let instrument = instruments[i].id
+    let wavesurfer = WaveSurfer.create(
+    {
+      container: '#'+instrument,
+      waveColor: 'violet',
+      progressColor: 'purple',
+      responsive: true
+    });
+    wavesurfer.load(instrument+'.mp3');
+    wavesurfer.on('seek', function (progress) { seekTo(progress) })
+    surfers.set(instrument, wavesurfer)
+  }
+
+  function play() {
+    for(let i=0; i < instruments.length; i++)
+    {
+      let instrument = instruments[i].id
+      let enabled = document.getElementById("toggle-"+instrument).checked
+      if(enabled)
+      {
+        //document.getElementById("audio-"+instrument).play()
+        surfers.get(instrument).play()
+      }
+    }
+    document.getElementById("playButton").innerHTML = "Pause"
+    playing = true
+  }
+
+  function pause() {
+    for(let i=0; i < instruments.length; i++)
+    {
+      let instrument = instruments[i].id
+      //document.getElementById("audio-"+instrument).pause()
+      surfers.get(instrument).pause()
+    }
+    document.getElementById("playButton").innerHTML = "Play"
+    playing = false
+  }
+
+  function playPause() {
+    if(playing)
+    {
+      pause()
+    } else {
+      play()
+    }
+  }
+
+  function stop() {
+    pause()
+    seekTo(0)
+  }
+
+  function seekTo(progress) {
+    for(let i=0; i < instruments.length; i++)
+    {
+      let surfer = surfers.get(instruments[i].id)
+      let currentProgress = surfer.getCurrentTime()/surfer.getDuration()
+
+      if(Math.abs(currentProgress-progress) > 0.01) { // avoid recursive events
+        surfer.seekTo(progress)
+      }
+    }
+  }
+
+  </script>
 </body>
 </html>
