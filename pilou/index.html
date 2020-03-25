@@ -95,6 +95,17 @@
     seekTo(0)
   }
 
+  function handleKeypress(e) {
+    switch(e.which) {
+      case 32: // space
+        playPause()
+        e.preventDefault()
+        break
+    }
+  }
+
+  document.addEventListener("keydown", handleKeypress);
+
   </script>
 </body>
 </html>
