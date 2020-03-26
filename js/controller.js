@@ -15,6 +15,7 @@ function init(tracks, tracksContainerId) {
           avatar.src = track["icon"]
           avatar.alt = track["id"]
           avatar.onclick = "toggleMute('" + track["id"] + "')"
+          avatar.ontouchend = "toggleMute('" + track["id"] + "')"
           avatar.width = "80"
           avatar.height = "80"
         avatarDiv.appendChild(avatar)
