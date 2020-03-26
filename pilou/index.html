@@ -4,11 +4,8 @@
   <title>Jukebox Yolande</title>
 </head>
 <body>
-  <h1>
-    Jukebox Yolande
-  </h1>
-  <h2>Pilou pilou</h2>
-  
+  <h1>Jukebox Yolande : Pilou pilou</h1>
+
   <button onclick="stop()">Stop</button>
   <button onclick="skipBackward()"><<</button>
   <button id="playButton" onclick="playPause()">Play</button>
@@ -17,30 +14,73 @@
   <label for="speed">Speed :</label>
   <input type="range" id="speedInput" name="speed" min="0.5" max="1.5" step="0.1" value="1" onchange="setSpeed(this.value)">
 
-  <div id="mestre" class="track">
-    <input type="checkbox" id="toggle-mestre" checked>
-    <label for="toggle-mestre">Mestre</label>
+  <div class="track" id="mestre">
+    <div class="avatar">
+      <img src="../logo.png" alt="mestre" description="mestre" onclick="toggleMute('mestre')" width="80px" height="80px">
+    </div>
+    <div class="surfer" id="mestre-surfer">
+    </div>
   </div>
-  <div id="tamborim" class="track">
-    <input type="checkbox" id="toggle-tamborim" checked>
-    <label for="toggle-tamborim">Tamborim</label>
+
+  <div class="track" id="tamborim">
+    <div class="avatar">
+      <img src="../logo.png" alt="tamborim" description="tamborim" onclick="toggleMute('tamborim')" width="80px" height="80px">
+    </div>
+    <div class="surfer" id="tamborim-surfer">
+    </div>
   </div>
-  <div id="caisse" class="track">
-    <input type="checkbox" id="toggle-caisse" checked>
-    <label for="toggle-caisse">Caisse</label>
+
+  <div class="track" id="caisse">
+    <div class="avatar">
+      <img src="../logo.png" alt="caisse" description="caisse" onclick="toggleMute('caisse')" width="80px" height="80px">
+    </div>
+    <div class="surfer" id="caisse-surfer">
+    </div>
   </div>
-  <div id="repique" class="track">
-    <input type="checkbox" id="toggle-repique" checked>
-    <label for="toggle-repique">Repique</label>
+
+  <div class="track" id="repique">
+    <div class="avatar">
+      <img src="../logo.png" alt="repique" description="repique" onclick="toggleMute('repique')" width="80px" height="80px">
+    </div>
+    <div class="surfer" id="repique-surfer">
+    </div>
   </div>
-  <div id="surdo12" class="track">
-    <input type="checkbox" id="toggle-surdo12" checked>
-    <label for="toggle-surdo12">Surdo12</label>
+
+  <div class="track" id="surdo12">
+    <div class="avatar">
+      <img src="../logo.png" alt="surdo12" description="surdo12" onclick="toggleMute('surdo12')" width="80px" height="80px">
+    </div>
+    <div class="surfer" id="surdo12-surfer">
+    </div>
   </div>
-  <div id="surdo3" class="track">
-    <input type="checkbox" id="toggle-surdo3" checked>
-    <label for="toggle-surdo3">Surdo3</label>
+
+  <div class="track" id="surdo3">
+    <div class="avatar">
+      <img src="../logo.png" alt="surdo3" description="surdo3" onclick="toggleMute('surdo3')" width="80px" height="80px">
+    </div>
+    <div class="surfer" id="surdo3-surfer">
+    </div>
   </div>
+
+  <style type="text/css">
+    body {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .avatar {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .muted {
+      filter: grayscale(100%);
+    }
+    .surfer {
+      display: inline-block;
+      vertical-align: middle;
+      width:90%;
+    }
+  </style>
   <script src="https://unpkg.com/wavesurfer.js"></script>
   <script type="text/javascript">
   let playing = false
@@ -53,7 +93,7 @@
     let instrument = instruments[i].id
     let wavesurfer = WaveSurfer.create(
     {
-      container: '#'+instrument,
+      container: '#'+instrument+"-surfer",
       waveColor: 'violet',
       progressColor: 'purple',
       responsive: true,
@@ -66,7 +106,7 @@
 
   function play() {
     surfers.forEach(function (surfer, instrument) {
-      if(document.getElementById("toggle-"+instrument).checked)
+      //if(document.getElementById("toggle-"+instrument).checked)
       {
         surfer.play()
       }
@@ -127,6 +167,16 @@
     let speed = Number(speedInput.value)
     speedInput.value = speed - 0.1
     speedInput.dispatchEvent(new Event('change'))
+  }
+
+  function toggleMute(instrument) {
+    let surfer = surfers.get(instrument)
+    surfer.toggleMute()
+    if(surfer.getMute()) {
+      document.getElementById(instrument).classList.add("muted")
+    } else {
+      document.getElementById(instrument).classList.remove("muted")
+    }
   }
 
   function handleKeypress(e) {
