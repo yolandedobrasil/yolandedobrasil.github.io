@@ -14,8 +14,7 @@ function init(tracks, tracksContainerId) {
           let avatar = document.createElement("img")
           avatar.src = track["icon"]
           avatar.alt = track["id"]
-          avatar.onclick = "toggleMute('" + track["id"] + "')"
-          avatar.ontouchend = "toggleMute('" + track["id"] + "')"
+          avatar.addEventListener("click", muter(track["id"]))
           avatar.width = "80"
           avatar.height = "80"
         avatarDiv.appendChild(avatar)
@@ -112,6 +111,10 @@ function toggleMute(instrument) {
   } else {
     document.getElementById(instrument).classList.remove("muted")
   }
+}
+
+function muter(instrument) {
+  return function(){ toggleMute(instrument) }
 }
 
 function handleKeypress(e) {
