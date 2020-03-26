@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jukebox Yolande : Pilou pilou</title>
+  <title>Jukebox Yolande - Pilou pilou</title>
+  <meta charset="UTF-8">
 </head>
 <body>
   <div id="content">
@@ -20,62 +21,64 @@
       </span>
     </div>
 
-    <div class="track" id="mestre">
-      <div class="avatar">
-        <img src="../mestre.png" alt="mestre" description="mestre" onclick="toggleMute('mestre')" width="80px" height="80px">
+    <div id="tracks">
+      <div class="track" id="mestre">
+        <div class="avatar">
+          <img src="../mestre.png" alt="mestre" description="mestre" onclick="toggleMute('mestre')" width="80px" height="80px">
+        </div>
+        <div class="player" id="mestre-player">
+        </div>
       </div>
-      <div class="surfer" id="mestre-surfer">
-      </div>
-    </div>
 
-    <div class="track" id="tamborim">
-      <div class="avatar">
-        <img src="../tamborim.png" alt="tamborim" description="tamborim" onclick="toggleMute('tamborim')" width="80px" height="80px">
+      <div class="track" id="tamborim">
+        <div class="avatar">
+          <img src="../tamborim.png" alt="tamborim" description="tamborim" onclick="toggleMute('tamborim')" width="80px" height="80px">
+        </div>
+        <div class="player" id="tamborim-player">
+        </div>
       </div>
-      <div class="surfer" id="tamborim-surfer">
-      </div>
-    </div>
 
-    <div class="track" id="caisse">
-      <div class="avatar">
-        <img src="../caisse.png" alt="caisse" description="caisse" onclick="toggleMute('caisse')" width="80px" height="80px">
+      <div class="track" id="caisse">
+        <div class="avatar">
+          <img src="../caisse.png" alt="caisse" description="caisse" onclick="toggleMute('caisse')" width="80px" height="80px">
+        </div>
+        <div class="player" id="caisse-player">
+        </div>
       </div>
-      <div class="surfer" id="caisse-surfer">
-      </div>
-    </div>
 
-    <div class="track" id="repique">
-      <div class="avatar">
-        <img src="../repique.png" alt="repique" description="repique" onclick="toggleMute('repique')" width="80px" height="80px">
+      <div class="track" id="repique">
+        <div class="avatar">
+          <img src="../repique.png" alt="repique" description="repique" onclick="toggleMute('repique')" width="80px" height="80px">
+        </div>
+        <div class="player" id="repique-player">
+        </div>
       </div>
-      <div class="surfer" id="repique-surfer">
-      </div>
-    </div>
 
-    <div class="track" id="surdo1">
-      <div class="avatar">
-        <img src="../surdo1.png" alt="surdo1" description="surdo1" onclick="toggleMute('surdo1')" width="80px" height="80px">
+      <div class="track" id="surdo1">
+        <div class="avatar">
+          <img src="../surdo1.png" alt="surdo1" description="surdo1" onclick="toggleMute('surdo1')" width="80px" height="80px">
+        </div>
+        <div class="player" id="surdo1-player">
+        </div>
       </div>
-      <div class="surfer" id="surdo1-surfer">
-      </div>
-    </div>
 
-    <div class="track" id="surdo2">
-      <div class="avatar">
-        <img src="../surdo2.png" alt="surdo2" description="surdo2" onclick="toggleMute('surdo2')" width="80px" height="80px">
+      <div class="track" id="surdo2">
+        <div class="avatar">
+          <img src="../surdo2.png" alt="surdo2" description="surdo2" onclick="toggleMute('surdo2')" width="80px" height="80px">
+        </div>
+        <div class="player" id="surdo2-player">
+        </div>
       </div>
-      <div class="surfer" id="surdo2-surfer">
-      </div>
-    </div>
 
-    <div class="track" id="surdo3">
-      <div class="avatar">
-        <img src="../surdo3.png" alt="surdo3" description="surdo3" onclick="toggleMute('surdo3')" width="80px" height="80px">
+      <div class="track" id="surdo3">
+        <div class="avatar">
+          <img src="../surdo3.png" alt="surdo3" description="surdo3" onclick="toggleMute('surdo3')" width="80px" height="80px">
+        </div>
+        <div class="player" id="surdo3-player">
+        </div>
       </div>
-      <div class="surfer" id="surdo3-surfer">
-      </div>
-    </div>
 
+    </div>
   </div>
 
   <style type="text/css">
@@ -113,7 +116,7 @@
     .muted {
       filter: opacity(50%);
     }
-    .surfer {
+    .player {
       display: inline-block;
       vertical-align: middle;
       width:90%;
@@ -122,35 +125,40 @@
   <script src="../wavesurfer.js"></script>
   <script type="text/javascript">
   let playing = false
-  let speedInput = document.getElementById("speedInput")
-  let instruments = document.getElementsByClassName("track")
-  const surfers = new Map()
+  const speedInput = document.getElementById("speedInput")
+  const players = new Map()
 
-  // init waveforms
-  for (let i = 0; i < instruments.length; i++) {
-    let instrument = instruments[i].id
-    let wavesurfer = WaveSurfer.create(
-    {
-      container: '#'+instrument+"-surfer",
-      height: 80,
-      waveColor: 'purple',
-      progressColor: 'fuchsia',
-      responsive: true,
-      skipLength: 0.5
-    });
-    wavesurfer.load(instrument+'.mp3');
-    wavesurfer.on('seek', function (progress) { seekTo(progress) })
-    surfers.set(instrument, wavesurfer)
+  fetch("tracks.json")
+    .then(response => response.json())
+    .then(tracks => init(tracks));
+
+  function init(tracks) {
+    // init audio players
+    for (let i = 0; i < tracks.length; i++) {
+      let track = tracks[i]["id"]
+      let player = WaveSurfer.create(
+      {
+        container: '#'+track+"-player",
+        height: 80,
+        waveColor: 'purple',
+        progressColor: 'fuchsia',
+        responsive: true,
+        skipLength: 0.5
+      });
+      player.load(tracks[i]["audio"]);
+      player.on('seek', function (progress) { seekTo(progress) })
+      players.set(track, player)
+    }
   }
 
   function play() {
-    surfers.forEach(function (surfer, instrument) { surfer.play() })
+    players.forEach(function (player, instrument) { player.play() })
     document.getElementById("playButton").innerHTML = "⏸"
     playing = true
   }
 
   function pause() {
-    surfers.forEach( function(surfer) { surfer.pause() })
+    players.forEach( function(player) { player.pause() })
     document.getElementById("playButton").innerHTML = "▶"
     playing = false
   }
@@ -165,10 +173,10 @@
   }
 
   function seekTo(progress) {
-    surfers.forEach(function(surfer) {
-      let currentProgress = surfer.getCurrentTime()/surfer.getDuration()
+    players.forEach(function(player) {
+      let currentProgress = player.getCurrentTime()/player.getDuration()
       if(Math.abs(currentProgress-progress) > 0.01) { // avoid recursive events
-        surfer.seekTo(progress)
+        player.seekTo(progress)
       }
     })
   }
@@ -179,16 +187,15 @@
   }
 
   function skipBackward() {
-    surfers.forEach(function(surfer){surfer.skipBackward()})
+    players.forEach(function(player){player.skipBackward()})
   }
 
   function skipForward() {
-    surfers.forEach(function(surfer){surfer.skipForward()})
+    players.forEach(function(player){player.skipForward()})
   }
 
   function setSpeed(speed) {
-    console.log(speed)
-    surfers.forEach(function(surfer){surfer.setPlaybackRate(speed)})
+    players.forEach(function(player){player.setPlaybackRate(speed)})
   }
 
   function accelerate() {
@@ -204,9 +211,9 @@
   }
 
   function toggleMute(instrument) {
-    let surfer = surfers.get(instrument)
-    surfer.toggleMute()
-    if(surfer.getMute()) {
+    let player = players.get(instrument)
+    player.toggleMute()
+    if(player.getMute()) {
       document.getElementById(instrument).classList.add("muted")
     } else {
       document.getElementById(instrument).classList.remove("muted")
