@@ -1,10 +1,32 @@
-let playing = false
+var playing = false
 const speedInput = document.getElementById("speedInput")
 const players = new Map()
 
+function init(tracks, tracksContainerId) {
+  // build DOM elements
+  let trackList = document.getElementById(tracksContainerId)
+  tracks.forEach(function (track) {
+    let trackDiv = document.createElement("div")
+      trackDiv.classList.add("track")
+      trackDiv.id = track["id"]
+      let avatarDiv = document.createElement("div")
+        avatarDiv.classList.add("avatar")
+          let avatar = document.createElement("img")
+          avatar.src = track["icon"]
+          avatar.alt = track["id"]
+          avatar.onclick = "toggleMute('" + track["id"] + "')"
+          avatar.width = "80"
+          avatar.height = "80"
+        avatarDiv.appendChild(avatar)
+      trackDiv.appendChild(avatarDiv)
+      let playerDiv = document.createElement("div")
+        playerDiv.classList.add("player")
+        playerDiv.id = track["id"] + "-player"
+      trackDiv.appendChild(playerDiv)
+    trackList.appendChild(trackDiv)
+  })
 
-function init(tracks) {
-  // init audio players
+  // initialize audio players
   for (let i = 0; i < tracks.length; i++) {
     let track = tracks[i]["id"]
     let player = WaveSurfer.create(

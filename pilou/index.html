@@ -21,64 +21,7 @@
       </span>
     </div>
 
-    <div id="tracks">
-      <div class="track" id="mestre">
-        <div class="avatar">
-          <img src="../img/mestre.png" alt="mestre" description="mestre" onclick="toggleMute('mestre')" width="80px" height="80px">
-        </div>
-        <div class="player" id="mestre-player">
-        </div>
-      </div>
-
-      <div class="track" id="tamborim">
-        <div class="avatar">
-          <img src="../img/tamborim.png" alt="tamborim" description="tamborim" onclick="toggleMute('tamborim')" width="80px" height="80px">
-        </div>
-        <div class="player" id="tamborim-player">
-        </div>
-      </div>
-
-      <div class="track" id="caisse">
-        <div class="avatar">
-          <img src="../img/caisse.png" alt="caisse" description="caisse" onclick="toggleMute('caisse')" width="80px" height="80px">
-        </div>
-        <div class="player" id="caisse-player">
-        </div>
-      </div>
-
-      <div class="track" id="repique">
-        <div class="avatar">
-          <img src="../img/repique.png" alt="repique" description="repique" onclick="toggleMute('repique')" width="80px" height="80px">
-        </div>
-        <div class="player" id="repique-player">
-        </div>
-      </div>
-
-      <div class="track" id="surdo1">
-        <div class="avatar">
-          <img src="../img/surdo1.png" alt="surdo1" description="surdo1" onclick="toggleMute('surdo1')" width="80px" height="80px">
-        </div>
-        <div class="player" id="surdo1-player">
-        </div>
-      </div>
-
-      <div class="track" id="surdo2">
-        <div class="avatar">
-          <img src="../img/surdo2.png" alt="surdo2" description="surdo2" onclick="toggleMute('surdo2')" width="80px" height="80px">
-        </div>
-        <div class="player" id="surdo2-player">
-        </div>
-      </div>
-
-      <div class="track" id="surdo3">
-        <div class="avatar">
-          <img src="../img/surdo3.png" alt="surdo3" description="surdo3" onclick="toggleMute('surdo3')" width="80px" height="80px">
-        </div>
-        <div class="player" id="surdo3-player">
-        </div>
-      </div>
-
-    </div>
+    <div id="tracks" />
   </div>
 
   <style type="text/css">
@@ -122,12 +65,13 @@
       width:90%;
     }
   </style>
+
   <script src="../js/wavesurfer.js"></script>
   <script src="../js/controller.js"></script>
   <script type="text/javascript">
     fetch("tracks.json")
       .then(response => response.json())
-      .then(tracks => init(tracks));
+      .then(tracks => init(tracks, "tracks"));
   </script>
 </body>
 </html>
