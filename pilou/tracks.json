@@ -10,6 +10,11 @@
     "icon": "../img/tamborim.png"
   },
   {
+    "id": "agogo",
+    "audio": "agogo.mp3",
+    "icon": "../img/agogo.png"
+  },
+  {
     "id": "caisse",
     "audio": "caisse.mp3",
     "icon": "../img/caisse.png"
