@@ -14,32 +14,8 @@
       Alors maintenant plus d'excuses : au charbon, les feignasses ! *</p>
     </div>
 
-    <ul class="w3-ul w3-border w3-card-2">
+    <ul class="w3-ul w3-border w3-card-2" id="breaks_list">
       <li><h2>Breaks disponibles</h2></li>
-      <a href="./breaks/pilou/index.html">
-        <li class="w3-bar w3-hover-pink">
-          <img src="./breaks/pilou/signe.png" class="w3-bar-item" style="width:120px">
-          <div class="w3-bar-item">
-            <span class="w3-large">Pilou pilou</span>
-          </div>
-        </li>
-      </a>
-      <a href="./breaks/g/index.html">
-        <li class="w3-bar w3-hover-pink">
-          <img src="./breaks/g/signe.png" class="w3-bar-item" style="width:120px">
-          <div class="w3-bar-item">
-            <span class="w3-large">Break G</span>
-          </div>
-        </li>
-      </a>
-      <a href="./breaks/funk_salgueiro/index.html">
-        <li class="w3-bar w3-hover-pink">
-          <img src="./breaks/funk_salgueiro/signe.png" class="w3-bar-item" style="width:120px">
-          <div class="w3-bar-item">
-            <span class="w3-large">Funk Salgueiro</span>
-          </div>
-        </li>
-      </a>
     </ul>
 
     <p class="note">* c'est pour rire, bien sûr, puisse surtout cet outil vous changer les idées, en particulier à celles et ceux qui nous soignent. <3</p>
@@ -70,5 +46,40 @@
       margin-top: 30px;
     }
   </style>
+  <script>
+    fetch("breaks.json")
+      .then(response => response.json())
+      .then(breaks => list(breaks));
+
+    // Builds the list of breaks
+    function list(breaks){
+      let trackList = document.getElementById("breaks_list")
+      for (let [break_id, brk] of Object.entries(breaks)) {
+        // Don't display unpublished content
+        if(!brk["published"]) { continue }
+        
+        let link = document.createElement("a")
+          link.href = "./jukebox.html?break_id=" + break_id
+          let listItem = document.createElement("li")
+            listItem.classList.add("w3-bar")
+            listItem.classList.add("w3-hover-pink")
+            let sign = document.createElement("img")
+              sign.classList.add("w3-bar-item")
+              sign.src = brk["sign"]
+              sign.alt = "Signe du break " + brk["name"]
+              sign.style = "width:120px"
+            listItem.appendChild(sign)
+            let breakDiv = document.createElement("div")
+              breakDiv.classList.add("w3-bar-item")
+              let title = document.createElement("span")
+                title.classList.add("w3-large")
+                title.innerHTML = brk["name"]
+              breakDiv.appendChild(title)
+            listItem.appendChild(breakDiv)
+          link.appendChild(listItem)
+        trackList.appendChild(link)
+      }
+    }
+  </script>
 </body>
 </html>

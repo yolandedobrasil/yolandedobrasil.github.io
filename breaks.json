@@ -1,0 +1,134 @@
+{
+  "pilou": {
+    "name": "Pilou pilou",
+    "sign": "./breaks/pilou/signe.png",
+    "published": true,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/pilou/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/pilou/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/pilou/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/pilou/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/pilou/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/pilou/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/pilou/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/pilou/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "funk_salgueiro": {
+    "name": "Funk Salgueiro",
+    "sign": "./breaks/funk_salgueiro/signe.png",
+    "published": true,
+    "tracks": [
+      {
+        "id": "mestre",
+        "audio": "./breaks/funk_salgueiro/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/funk_salgueiro/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/funk_salgueiro/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/funk_salgueiro/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/funk_salgueiro/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/funk_salgueiro/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/funk_salgueiro/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "g": {
+    "name": "Break G",
+    "sign": "./breaks/g/signe.png",
+    "published": true,
+    "tracks": [
+      {
+        "id": "mestre",
+        "audio": "./breaks/g/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/g/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/g/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/g/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/g/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/g/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/g/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  }
+}
