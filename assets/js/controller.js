@@ -46,13 +46,13 @@ function init(tracks, tracksContainerId) {
 
 function play() {
   players.forEach(function (player, instrument) { player.play() })
-  document.getElementById("playButton").src = "../img/pause.png"
+  document.getElementById("playButton").src = "../../assets/img/pause.png"
   playing = true
 }
 
 function pause() {
   players.forEach( function(player) { player.pause() })
-  document.getElementById("playButton").src = "../img/play.png"
+  document.getElementById("playButton").src = "../../assets/img/play.png"
   playing = false
 }
 

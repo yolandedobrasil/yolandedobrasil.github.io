@@ -2,36 +2,36 @@
   {
     "id": "mestre",
     "audio": "mestre.mp3",
-    "icon": "../img/mestre.png"
+    "icon": "../../assets/img/mestre.png"
   },
   {
     "id": "tamborim",
     "audio": "tamborim.mp3",
-    "icon": "../img/tamborim.png"
+    "icon": "../../assets/img/tamborim.png"
   },
   {
     "id": "caisse",
     "audio": "caisse.mp3",
-    "icon": "../img/caisse.png"
+    "icon": "../../assets/img/caisse.png"
   },
   {
     "id": "repique",
     "audio": "repique.mp3",
-    "icon": "../img/repique.png"
+    "icon": "../../assets/img/repique.png"
   },
   {
     "id": "surdo1",
     "audio": "surdo1.mp3",
-    "icon": "../img/surdo1.png"
+    "icon": "../../assets/img/surdo1.png"
   },
   {
     "id": "surdo2",
     "audio": "surdo2.mp3",
-    "icon": "../img/surdo2.png"
+    "icon": "../../assets/img/surdo2.png"
   },
   {
     "id": "surdo3",
     "audio": "surdo3.mp3",
-    "icon": "../img/surdo3.png"
+    "icon": "../../assets/img/surdo3.png"
   }
 ]
