@@ -1,4 +1,4 @@
 *.aup
-*/*_data/
+*_data/
 *.MP3
 *.xcf
