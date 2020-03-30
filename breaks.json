@@ -105,6 +105,11 @@
         "icon": "./assets/img/mestre.png"
       },
       {
+        "id": "agogo",
+        "audio": "./breaks/g/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/g/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
