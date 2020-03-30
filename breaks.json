@@ -58,6 +58,11 @@
         "icon": "./assets/img/mestre.png"
       },
       {
+        "id": "agogo",
+        "audio": "./breaks/funk_salgueiro/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/funk_salgueiro/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
