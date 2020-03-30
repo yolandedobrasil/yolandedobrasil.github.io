@@ -130,5 +130,102 @@
         "icon": "./assets/img/surdo3.png"
       }
     ]
+  },
+  "grande_rio": {
+    "name": "Grande Rio",
+    "sign": "./assets/img/yolande.png",
+    "published": false,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/grande_rio/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/grande_rio/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/grande_rio/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "imperatriz_2": {
+    "name": "Imperatriz II",
+    "sign": "./assets/img/yolande.png",
+    "published": false,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/imperatriz_2/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/imperatriz_2/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/imperatriz_2/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      }
+    ]
+  },
+  "vague": {
+    "name": "La Vague",
+    "sign": "./assets/img/yolande.png",
+    "published": false,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/vague/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/vague/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/vague/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "viradouro_tete": {
+    "name": "Viradouro sur la tête",
+    "sign": "./assets/img/yolande.png",
+    "published": false,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/viradouro_tete/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/viradouro_tete/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/viradouro_tete/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/viradouro_tete/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
   }
 }
