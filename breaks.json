@@ -1,48 +1,28 @@
 {
-  "pilou": {
-    "name": "Pilou pilou",
-    "sign": "./breaks/pilou/signe.png",
-    "published": true,
-    "tracks":
-    [
+  
+  "earth_wind_fire": {
+    "name": "Earth, Wind & Fire",
+    "sign": "./assets/img/yolande.png",
+    "published": false,
+    "tracks": [
       {
         "id": "mestre",
-        "audio": "./breaks/pilou/mestre.mp3",
+        "audio": "./breaks/earth_wind_fire/mestre.mp3",
         "icon": "./assets/img/mestre.png"
       },
       {
         "id": "tamborim",
-        "audio": "./breaks/pilou/tamborim.mp3",
+        "audio": "./breaks/earth_wind_fire/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
       },
       {
-        "id": "agogo",
-        "audio": "./breaks/pilou/agogo.mp3",
-        "icon": "./assets/img/agogo.png"
-      },
-      {
-        "id": "caisse",
-        "audio": "./breaks/pilou/caisse.mp3",
-        "icon": "./assets/img/caisse.png"
-      },
-      {
         "id": "repique",
-        "audio": "./breaks/pilou/repique.mp3",
+        "audio": "./breaks/earth_wind_fire/repique.mp3",
         "icon": "./assets/img/repique.png"
       },
       {
-        "id": "surdo1",
-        "audio": "./breaks/pilou/surdo1.mp3",
-        "icon": "./assets/img/surdo1.png"
-      },
-      {
-        "id": "surdo2",
-        "audio": "./breaks/pilou/surdo2.mp3",
-        "icon": "./assets/img/surdo2.png"
-      },
-      {
         "id": "surdo3",
-        "audio": "./breaks/pilou/surdo3.mp3",
+        "audio": "./breaks/earth_wind_fire/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
@@ -144,13 +124,23 @@
   "grande_rio": {
     "name": "Grande Rio",
     "sign": "./assets/img/yolande.png",
-    "published": false,
+    "published": true,
     "tracks":
     [
       {
         "id": "mestre",
         "audio": "./breaks/grande_rio/mestre.mp3",
         "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/grande_rio/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/grande_rio/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
       },
       {
         "id": "repique",
@@ -167,7 +157,7 @@
   "imperatriz_2": {
     "name": "Imperatriz II",
     "sign": "./assets/img/yolande.png",
-    "published": false,
+    "published": true,
     "tracks":
     [
       {
@@ -176,21 +166,84 @@
         "icon": "./assets/img/mestre.png"
       },
       {
+        "id": "agogo",
+        "audio": "./breaks/imperatriz_2/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/imperatriz_2/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
       },
       {
+        "id": "caisse",
+        "audio": "./breaks/imperatriz_2/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
         "id": "repique",
         "audio": "./breaks/imperatriz_2/repique.mp3",
         "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/imperatriz_2/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "pilou": {
+    "name": "Pilou pilou",
+    "sign": "./breaks/pilou/signe.png",
+    "published": true,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/pilou/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/pilou/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/pilou/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/pilou/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/pilou/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/pilou/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/pilou/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/pilou/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
       }
     ]
   },
   "vague": {
     "name": "La Vague",
     "sign": "./assets/img/yolande.png",
-    "published": false,
+    "published": true,
     "tracks":
     [
       {
@@ -199,9 +252,24 @@
         "icon": "./assets/img/mestre.png"
       },
       {
+        "id": "agogo",
+        "audio": "./breaks/vague/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/vague/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/vague/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/vague/repique.mp3",
+        "icon": "./assets/img/repique.png"
       },
       {
         "id": "surdo3",
@@ -210,10 +278,43 @@
       }
     ]
   },
+  "viradouro_2003": {
+    "name": "Viradouro 2003",
+    "sign": "./assets/img/yolande.png",
+    "published": true,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/viradouro_2003/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/viradouro_2003/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/viradouro_2003/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/viradouro_2003/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/viradouro_2003/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
   "viradouro_tete": {
     "name": "Viradouro sur la tête",
     "sign": "./assets/img/yolande.png",
-    "published": false,
+    "published": true,
     "tracks":
     [
       {
@@ -222,9 +323,19 @@
         "icon": "./assets/img/mestre.png"
       },
       {
+        "id": "agogo",
+        "audio": "./breaks/viradouro_tete/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/viradouro_tete/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/viradouro_tete/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
       },
       {
         "id": "repique",
