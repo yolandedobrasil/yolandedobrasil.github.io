@@ -348,5 +348,18 @@
         "icon": "./assets/img/surdo3.png"
       }
     ]
+  },
+  "percus_weekend": {
+    "name": "Percus corporelles du visioweekend",
+    "sign": "./assets/img/yolande.png",
+    "published": true,
+    "tracks":
+    [
+      {
+        "id": "corporel",
+        "audio": "./breaks/percus_weekend/corporel.mp3",
+        "icon": "./assets/img/mestre.png"
+      }
+    ]
   }
 }

@@ -3,36 +3,42 @@
 <head>
   <title>Jukebox Yolande</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./assets/css/w3.css"> 
 </head>
 <body>
   <div id="content">
-    <h1><img src="./assets/img/yolande.png" height="80px" style="margin-right:20px">Jukebox Yolande</h1>
+    <h1><img src="./assets/img/yolande.png" height="80px" style="margin-right:20px">Le Jukebox</h1>
 
-    <div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
-      <p>Après 5 semaines de confinement, vous devez connaître les breaks par cœur, non ? En tout cas, le Jukebox est là pour vous servir. </p>
-      <p>Allez, répétez, répétez, qu'on puisse jouer tout l'été ! *</p>
+    <div>
+      <div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow w3-display-container">
+        <span onclick="this.parentElement.parentElement.style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h3>Ça y est, c'est le weekeeend ! *</h3>
+        <p>En cette fin de sixième semaine de confinement, les percus corporelles font leur entrée dans le Jukebox, aux côtés des autres breaks que vous pouvez toujours réviser. </p>
+        <p>Allez, répétez, répétez, qu'on puisse jouer tout l'été !</p>
+      </div>
+
+      <p class="note">* extrait de la chanson&nbsp;<a href="https://www.youtube.com/watch?v=Meb7uaNlcS0">Weekend</a>, de Lorie Pester © Sony Music, 2003</p>
     </div>
 
     <ul class="w3-ul w3-border w3-card-2" id="breaks_list">
       <li><h2>Breaks disponibles</h2></li>
     </ul>
 
-    <p class="note">* pro-tip : si vous répétez aux alentours de 20h, personne ne dira rien et vous aurez peut-être quelques applaudissements, même ! :)</p>
-
   </div>
 
   <style type="text/css">
+
     body {
       background: #D23789;
       background-image: url("./assets/img/zebra.svg");
       background-size: cover;
     }
     #content {
-      width: 60%;
       margin-left: auto;
       margin-right: auto;
       background: white;
+      width: 95%;
       padding: 20px;
     }
     h1 {
@@ -44,6 +50,18 @@
       display: flex;
       justify-content: center;
       margin-top: 30px;
+    }
+
+    @media (min-width: 500px) {
+      #content {
+        width: 80%;
+      }
+    }
+
+    @media (min-width: 900px) {
+      #content {
+        width: 60%;
+      }
     }
   </style>
   <script>
