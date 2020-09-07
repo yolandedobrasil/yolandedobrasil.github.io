@@ -6,21 +6,15 @@ function init(brk, titleContainerId, tracksContainerId) {
   // build DOM elements
   let breakTitle = document.getElementById(titleContainerId)
   breakTitle.innerHTML = ""
-  let logo = document.createElement("img")
-    logo.src = "./assets/img/yolande.png"
-    logo.alt = "Logo de Yolande do Brasil"
-    logo.height = "80"
-    logo.style = "margin-right: 20px"
-  breakTitle.appendChild(logo)
-  let title = document.createElement("span")
-    title.innerHTML = brk["name"]
-  breakTitle.appendChild(title)
   let sign = document.createElement("img")
     sign.src = brk["sign"]
     sign.alt = "Signe du break " + brk["name"]
     sign.height = "100"
     sign.style = "margin-right: 20px"
   breakTitle.appendChild(sign)
+  let title = document.createElement("span")
+    title.innerHTML = brk["name"]
+  breakTitle.appendChild(title)
 
   let trackList = document.getElementById(tracksContainerId)
   const tracks = brk["tracks"]
@@ -34,8 +28,7 @@ function init(brk, titleContainerId, tracksContainerId) {
           avatar.src = track["icon"]
           avatar.alt = track["id"]
           avatar.addEventListener("click", muter(track["id"]))
-          avatar.width = "80"
-          avatar.height = "80"
+          avatar.style = "width: 100%"
         avatarDiv.appendChild(avatar)
       trackDiv.appendChild(avatarDiv)
       let playerDiv = document.createElement("div")
