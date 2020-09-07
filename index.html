@@ -8,19 +8,19 @@
 </head>
 <body>
   <div id="content">
-    <h1><img src="./assets/img/yolande.png" height="80px" style="margin-right:20px">Le Jukebox</h1>
+    <h1><img src="./assets/img/yolande.png" class="logo-main">Le Jukebox</h1>
 
     <div>
-      <div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow w3-display-container">
+      <div class="w3-container w3-pale-yellow w3-leftbar w3-border-yellow w3-display-container">
         <span onclick="this.parentElement.parentElement.style.display='none'" class="w3-button w3-display-topright">&times;</span>
-        <h3>Reeeeentrée des classes !</h3>
+        <h3>Reeentrée des classes !</h3>
         <p>Les vacances ont été l'occasion de réaliser plusieurs enregistrements (notamment le Pilou !). Vous les retrouverez bientôt ci-dessous, avec le reste du répertoire.</p>
         <p>Allez, bon apprentissage aux nouvelles et nouveaux, et à bientôt !</p>
       </div>
     </div>
 
-    <ul class="w3-ul w3-border w3-card-2" id="breaks_list">
-      <li><h2>Breaks disponibles</h2></li>
+    <ul class="w3-ul w3-border" id="breaks_list">
+      <h2>Les breaks 👇</h2>
     </ul>
 
   </div>
@@ -32,17 +32,39 @@
       background-image: url("./assets/img/zebra.svg");
       background-size: cover;
     }
+    .logo-main {
+      width: 80px;
+      margin-right: 20px;
+    }
+    .logo-break {
+      width: 120px;
+    }
+    .li-break {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+    }
     #content {
-      margin-left: auto;
-      margin-right: auto;
+      margin: 10px;
       background: white;
-      width: 95%;
-      padding: 20px;
     }
     h1 {
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 10px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    h2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      padding: 5px;
+    }
+    a {
+      text-decoration: none;
     }
     .note {
       display: flex;
@@ -53,6 +75,8 @@
     @media (min-width: 500px) {
       #content {
         width: 80%;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -77,16 +101,14 @@
         let link = document.createElement("a")
           link.href = "./jukebox.html?break_id=" + break_id
           let listItem = document.createElement("li")
-            listItem.classList.add("w3-bar")
+            listItem.classList.add("li-break")
             listItem.classList.add("w3-hover-pink")
             let sign = document.createElement("img")
-              sign.classList.add("w3-bar-item")
+              sign.classList.add("logo-break")
               sign.src = brk["sign"]
               sign.alt = "Signe du break " + brk["name"]
-              sign.style = "width:120px"
             listItem.appendChild(sign)
             let breakDiv = document.createElement("div")
-              breakDiv.classList.add("w3-bar-item")
               let title = document.createElement("span")
                 title.classList.add("w3-large")
                 title.innerHTML = brk["name"]
