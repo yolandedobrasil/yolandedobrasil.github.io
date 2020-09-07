@@ -352,7 +352,7 @@
   "percus_weekend": {
     "name": "Percus corporelles du visioweekend",
     "sign": "./assets/img/yolande.png",
-    "published": true,
+    "published": false,
     "tracks":
     [
       {
