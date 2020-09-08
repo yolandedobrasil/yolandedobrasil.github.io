@@ -3,27 +3,32 @@
 <head>
   <title>Jukebox Yolande</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./assets/css/w3.css"> 
 </head>
 <body>
   <div id="content">
-    <h1 id="break_title"><img src="./assets/img/yolande.png" height="80px" style="margin-right: 20px">Jukebox</h1>
-
-    <div id="controls" class="w3-row" style="height: 50px">
-      <div id="playbackControls" class="w3-container w3-half">
-        <img src="./assets/img/stop.png" height="50px" onclick="stop()">
-        <img src="./assets/img/rewind.png" width="50px" height="50px" onclick="skipBackward()">
-        <img src="./assets/img/play.png" width="50px" height="50px" id="playButton" onclick="playPause()">
-        <img src="./assets/img/forward.png" width="50px" height="50px" onclick="skipForward()">
-      </div>
-
-      <div id="speedControls" class="w3-container w3-half">
-        <img src="./assets/img/turtle.png" width="50px" height="50px" >
-        <input type="range" id="speedInput" name="speed" min="0.5" max="1.5" step="0.1" value="1" onchange="setSpeed(this.value)">
-        <img src="./assets/img/rabbit.png" width="50px" height="50px" >
+    <div id="title-block">
+      <h1 id="title-text">Nom du break</h1>
+      <div id="title-img-wrapper">
+        <img id="title-img" src="./assets/img/yolande.png" class="logo">
       </div>
     </div>
 
+    <div id="speed-controls">
+      <div class="speed-button"><img src="./assets/img/turtle.png" class="speed-img"></div>
+      <div class="speed-input"><input type="range" id="speed-slider" name="speed" min="0.5" max="1.5" step="0.1" value="1" onchange="setSpeed(this.value)"></div>
+      <div class="speed-button"><img src="./assets/img/rabbit.png" class="speed-img"></div>
+    </div>
+
     <div id="tracks" />
+
+    <div id="playback-controls" class="w3-card-4">
+      <div class="control-button"><img src="./assets/img/stop.png" class="button-img" onclick="stop()"></div>
+      <div class="control-button"><img src="./assets/img/rewind.png" class="button-img" onclick="skipBackward()"></div>
+      <div class="control-button"><img src="./assets/img/play.png" class="button-img" id="playButton" onclick="playPause()"></div>
+      <div class="control-button"><img src="./assets/img/forward.png" class="button-img" onclick="skipForward()"></div>
+    </div>
   </div>
 
   <style type="text/css">
@@ -31,44 +36,98 @@
       background: #D23789;
       background-image: url("./assets/img/zebra.svg");
       background-size: cover;
+      margin: 10px;
+      margin-bottom: 80px;
     }
     #content {
-      width: 95%;
-      margin-left: auto;
-      margin-right: auto;
       background: white;
-      padding: 20px;
+    }
+    #title-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
     }
     h1 {
+      font-family: "Segoe UI",Arial,sans-serif;
+      font-weight: 400;
+      font-size: 36px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    #title-text {
+      flex: 1 1;
+    }
+    #title-img-wrapper {
+      flex: 0 0;
+    }
+    #title-img {
+      height: 80px;
+    }
+
+    #speed-controls {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      padding: 10px;
     }
-    #controls {
+    .speed-button {
+      flex: 0 0;
+    }
+    .speed-img {
+      height: 60px;
+    }
+    .speed-input {
+      flex: 2 0;
+    }
+    #speed-slider {
+      width: 100%;
+    }
+
+    #tracks {
+      padding: 10px;
+    }
+    .track {
       display: flex;
+      align-items: center;
       justify-content: center;
     }
-    #speedControls {
-      display: flex;
-      justify-content: center;
+    .track-img-wrapper {
+      flex: 0 0;
     }
-    .avatar {
-      display: inline-block;
-      vertical-align: middle;
-      width: 15%;
+    .track-img {
+      height: 60px;
     }
     .muted {
       filter: opacity(50%);
     }
-    .player {
-      display: inline-block;
-      vertical-align: middle;
-      width: 85%;
+    .track-player {
+      flex: 1 1;
+    }
+
+    #playback-controls {
+      position: fixed;
+      z-index: 10;
+      left: 0px;
+      bottom: 0px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FAFAFA;
+    }
+    .control-button {
+      flex: 0 0;
+    }
+    .button-img {
+      height: 60px;
     }
 
     @media (min-width: 500px) {
       #content {
         width: 80%;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -87,7 +146,7 @@
     if(!!break_id) {
       fetch("breaks.json")
         .then(response => response.json())
-        .then(breaks => init(breaks[break_id], "break_title", "tracks"));
+        .then(breaks => init(breaks[break_id], "title-block", "tracks"));
       }
   </script>
 </body>

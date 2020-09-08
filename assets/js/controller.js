@@ -1,20 +1,13 @@
 var playing = false
-const speedInput = document.getElementById("speedInput")
+const speedSlider = document.getElementById("speed-slider")
 const players = new Map()
 
-function init(brk, titleContainerId, tracksContainerId) {
-  // build DOM elements
-  let breakTitle = document.getElementById(titleContainerId)
-  breakTitle.innerHTML = ""
-  let sign = document.createElement("img")
+function init(brk, titleBlockId, tracksContainerId)
+{
+  document.getElementById("title-text").innerText = brk["name"]
+  let sign = document.getElementById("title-img")
     sign.src = brk["sign"]
     sign.alt = "Signe du break " + brk["name"]
-    sign.height = "100"
-    sign.style = "margin-right: 20px"
-  breakTitle.appendChild(sign)
-  let title = document.createElement("span")
-    title.innerHTML = brk["name"]
-  breakTitle.appendChild(title)
 
   let trackList = document.getElementById(tracksContainerId)
   const tracks = brk["tracks"]
@@ -23,16 +16,16 @@ function init(brk, titleContainerId, tracksContainerId) {
       trackDiv.classList.add("track")
       trackDiv.id = track["id"]
       let avatarDiv = document.createElement("div")
-        avatarDiv.classList.add("avatar")
+        avatarDiv.classList.add("track-img-wrapper")
           let avatar = document.createElement("img")
           avatar.src = track["icon"]
           avatar.alt = track["id"]
           avatar.addEventListener("click", muter(track["id"]))
-          avatar.style = "width: 100%"
+          avatar.classList.add("track-img")
         avatarDiv.appendChild(avatar)
       trackDiv.appendChild(avatarDiv)
       let playerDiv = document.createElement("div")
-        playerDiv.classList.add("player")
+        playerDiv.classList.add("track-player")
         playerDiv.id = track["id"] + "-player"
       trackDiv.appendChild(playerDiv)
     trackList.appendChild(trackDiv)
@@ -104,15 +97,15 @@ function setSpeed(speed) {
 }
 
 function accelerate() {
-  let speed = Number(speedInput.value)
-  speedInput.value = speed + 0.1
-  speedInput.dispatchEvent(new Event('change'))
+  let speed = Number(speedSlider.value)
+  speedSlider.value = speed + 0.1
+  speedSlider.dispatchEvent(new Event('change'))
 }
 
 function slowdown() {
-  let speed = Number(speedInput.value)
-  speedInput.value = speed - 0.1
-  speedInput.dispatchEvent(new Event('change'))
+  let speed = Number(speedSlider.value)
+  speedSlider.value = speed - 0.1
+  speedSlider.dispatchEvent(new Event('change'))
 }
 
 function toggleMute(instrument) {
