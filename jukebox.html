@@ -24,10 +24,11 @@
     <div id="tracks" />
 
     <div id="playback-controls" class="w3-card-4">
-      <div class="control-button"><img src="./assets/img/stop.png" class="button-img" onclick="stop()"></div>
+      <div class="control-button"><img src="./assets/img/stop.png" class="button-img" onclick="reset()"></div>
       <div class="control-button"><img src="./assets/img/rewind.png" class="button-img" onclick="skipBackward()"></div>
       <div class="control-button"><img src="./assets/img/play.png" class="button-img" id="playButton" onclick="playPause()"></div>
       <div class="control-button"><img src="./assets/img/forward.png" class="button-img" onclick="skipForward()"></div>
+      <div class="control-button"><img src="./assets/img/repeat.png" class="button-img muted" id="repeat-button" onclick="toggleRepeat()"></div>
     </div>
   </div>
 

@@ -1,4 +1,5 @@
 var playing = false
+var repeat = false
 const speedSlider = document.getElementById("speed-slider")
 const players = new Map()
 
@@ -45,6 +46,15 @@ function init(brk, titleBlockId, tracksContainerId)
     });
     player.load(tracks[i]["audio"]);
     player.on('seek', function (progress) { seekTo(progress) })
+    player.on('finish', function () {
+      if(repeat) {
+        player.play()
+      }
+      else {
+        pause()
+        reset()
+      }
+    })
     players.set(track, player)
   }
 }
@@ -79,8 +89,7 @@ function seekTo(progress) {
   })
 }
 
-function stop() {
-  pause()
+function reset() {
   seekTo(0)
 }
 
@@ -122,6 +131,15 @@ function muter(instrument) {
   return function(){ toggleMute(instrument) }
 }
 
+function toggleRepeat() {
+  repeat = !repeat
+  if(repeat) {
+    document.getElementById("repeat-button").classList.remove("muted")
+  } else {
+    document.getElementById("repeat-button").classList.add("muted")
+  }
+}
+
 function handleKeypress(e) {
   switch(e.which) {
     case 32: // space
@@ -143,6 +161,9 @@ function handleKeypress(e) {
     case 40: // down arrow
       slowdown()
       e.preventDefault()
+      break
+    case 66: // B key
+      toggleRepeat()
       break
   }
 }
