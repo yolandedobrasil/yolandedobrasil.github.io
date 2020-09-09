@@ -66,6 +66,16 @@
     a {
       text-decoration: none;
     }
+    .label {
+      color: #F0F;
+      font-weight: bold;
+      font-size: x-small;
+      text-transform: uppercase;
+      margin-left: 5px;
+    }
+    .li-break:hover .label {
+      color: #FFF;
+    }
     .note {
       display: flex;
       justify-content: center;
@@ -112,6 +122,13 @@
               let title = document.createElement("span")
                 title.classList.add("w3-large")
                 title.innerHTML = brk["name"]
+                if(!!brk["new"])
+                {
+                  let newLabel = document.createElement("sup")
+                    newLabel.classList.add("label")
+                    newLabel.innerHTML = "nouveau !"
+                  title.appendChild(newLabel)
+                }
               breakDiv.appendChild(title)
             listItem.appendChild(breakDiv)
           link.appendChild(listItem)
