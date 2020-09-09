@@ -32,7 +32,7 @@
       {
         "id": "repique-pro",
         "audio": "./breaks/g/repique-pro.mp3",
-        "icon": "./assets/img/repique.png"
+        "icon": "./assets/img/repique-pro.png"
       },
       {
         "id": "surdo1",
@@ -461,6 +461,40 @@
       {
         "id": "surdo3",
         "audio": "./breaks/poings/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "yolandetuq": {
+    "name": "Yolandetuq",
+    "sign": "./assets/img/yolande.png",
+    "published": true,
+    "new": true,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/yolandetuq/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/yolandetuq/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/yolandetuq/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo12",
+        "audio": "./breaks/yolandetuq/surdo12.mp3",
+        "icon": "./assets/img/surdo12.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/yolandetuq/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
