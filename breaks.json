@@ -208,7 +208,7 @@
     ]
   },
   "pilou": {
-    "name": "Pilou (début + tourne)",
+    "name": "Pilou : début et tourne",
     "sign": "./breaks/pilou/signe.png",
     "published": true,
     "tracks":
@@ -251,6 +251,92 @@
       {
         "id": "surdo3",
         "audio": "./breaks/pilou/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "pilou-petit": {
+    "name": "Pilou : Petit pilou",
+    "sign": "./assets/img/yolande.png",
+    "published": true,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/pilou-petit/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/pilou-petit/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/pilou-petit/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/pilou-petit/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/pilou-petit/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/pilou-petit/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/pilou-petit/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "pilou-grand": {
+    "name": "Pilou : Grand pilou",
+    "sign": "./assets/img/yolande.png",
+    "published": true,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/pilou-grand/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/pilou-grand/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/pilou-grand/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/pilou-grand/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/pilou-grand/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/pilou-grand/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/pilou-grand/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
