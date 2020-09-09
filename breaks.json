@@ -105,6 +105,11 @@
         "icon": "./assets/img/repique.png"
       },
       {
+        "id": "repique-pro",
+        "audio": "./breaks/g/repique-pro.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
         "id": "surdo1",
         "audio": "./breaks/g/surdo1.mp3",
         "icon": "./assets/img/surdo1.png"
