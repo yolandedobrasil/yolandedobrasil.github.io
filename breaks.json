@@ -186,6 +186,16 @@
         "icon": "./assets/img/repique.png"
       },
       {
+        "id": "surdo1",
+        "audio": "./breaks/imperatriz_2/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/imperatriz_2/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
         "id": "surdo3",
         "audio": "./breaks/imperatriz_2/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
