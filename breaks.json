@@ -208,7 +208,7 @@
     ]
   },
   "pilou": {
-    "name": "Pilou : début et tourne",
+    "name": "Pilou pilou",
     "sign": "./breaks/pilou/signe.png",
     "published": true,
     "tracks":
@@ -256,9 +256,10 @@
     ]
   },
   "pilou-petit": {
-    "name": "Pilou : Petit pilou",
+    "name": "Petit pilou",
     "sign": "./assets/img/yolande.png",
     "published": true,
+    "new": true,
     "tracks":
     [
       {
@@ -299,9 +300,10 @@
     ]
   },
   "pilou-grand": {
-    "name": "Pilou : Grand pilou",
+    "name": "Grand pilou",
     "sign": "./assets/img/yolande.png",
     "published": true,
+    "new": true,
     "tracks":
     [
       {
@@ -337,6 +339,50 @@
       {
         "id": "surdo3",
         "audio": "./breaks/pilou-grand/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "pilou-1234": {
+    "name": "Pilou 1234",
+    "sign": "./assets/img/yolande.png",
+    "published": true,
+    "new": true,
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/pilou-1234/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/pilou-1234/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/pilou-1234/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/pilou-1234/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/pilou-1234/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/pilou-1234/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/pilou-1234/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
