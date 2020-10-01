@@ -6489,38 +6489,29 @@ var author$project$Main$signRender = function (_break) {
 };
 var author$project$Main$answerChoices = F2(
 	function (breaks, aType) {
-		switch (aType.$) {
-			case 'SignAnswer':
-				return A2(
-					elm$html$Html$div,
-					_List_Nil,
-					A2(elm$core$List$map, author$project$Main$signRender, breaks));
-			case 'NameAnswer':
-				return A2(
-					elm$html$Html$div,
-					_List_Nil,
-					A2(elm$core$List$map, author$project$Main$nameRender, breaks));
-			case 'MixAnswer':
-				return A2(
-					elm$html$Html$div,
-					_List_Nil,
-					A2(elm$core$List$map, author$project$Main$mixRender, breaks));
-			case 'SignAndNameAnswer':
-				return A2(
-					elm$html$Html$div,
-					_List_Nil,
-					A2(elm$core$List$map, author$project$Main$signAndNameRender, breaks));
-			case 'AudioAndSignAnswer':
-				return A2(
-					elm$html$Html$div,
-					_List_Nil,
-					A2(elm$core$List$map, author$project$Main$audioAndSignRender, breaks));
-			default:
-				return A2(
-					elm$html$Html$div,
-					_List_Nil,
-					A2(elm$core$List$map, author$project$Main$audioAndNameRender, breaks));
-		}
+		var renderer = function () {
+			switch (aType.$) {
+				case 'SignAnswer':
+					return author$project$Main$signRender;
+				case 'NameAnswer':
+					return author$project$Main$nameRender;
+				case 'MixAnswer':
+					return author$project$Main$mixRender;
+				case 'SignAndNameAnswer':
+					return author$project$Main$signAndNameRender;
+				case 'AudioAndSignAnswer':
+					return author$project$Main$audioAndSignRender;
+				default:
+					return author$project$Main$audioAndNameRender;
+			}
+		}();
+		return A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('answer-content')
+				]),
+			A2(elm$core$List$map, renderer, breaks));
 	});
 var elm$html$Html$Attributes$autoplay = elm$html$Html$Attributes$boolProperty('autoplay');
 var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
@@ -8633,7 +8624,7 @@ var author$project$Main$formatLevel = function (level) {
 		case 'Easy':
 			return '🐣 Facile';
 		case 'Medium':
-			return '🦩 Moyen';
+			return '🥁 Moyen';
 		default:
 			return '🥋 Difficile';
 	}
