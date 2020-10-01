@@ -8677,73 +8677,41 @@ var author$project$Main$formatTime = function (time) {
 	return minutes + (':' + seconds);
 };
 var author$project$Main$renderPrompt = function (model) {
-	var _n0 = model.mode;
-	switch (_n0.$) {
-		case 'Training':
-			return A2(
+	var modeText = function () {
+		var _n0 = model.mode;
+		switch (_n0.$) {
+			case 'Training':
+				return author$project$Main$formatMode(model.mode);
+			case 'Streak':
+				return author$project$Main$formatMode(model.mode) + (' - ' + (elm$core$String$fromInt(model.correctAnswers) + ' bonnes réponses d\'affilée'));
+			default:
+				return author$project$Main$formatMode(model.mode) + (' - ' + author$project$Main$formatTime(author$project$Main$timeAttack - (model.time - model.startTime)));
+		}
+	}();
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('demotivator')
+			]),
+		_List_fromArray(
+			[
+				A2(
 				elm$html$Html$div,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('demotivator')
-					]),
+				_List_Nil,
 				_List_fromArray(
 					[
 						elm$html$Html$text(
-						'Mode : ' + (author$project$Main$formatMode(model.mode) + (' / Niveau : ' + author$project$Main$formatLevel(model.level))))
-					]));
-		case 'Streak':
-			return A2(
+						'Niveau : ' + author$project$Main$formatLevel(model.level))
+					])),
+				A2(
 				elm$html$Html$div,
+				_List_Nil,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('demotivator')
-					]),
-				_List_fromArray(
-					[
-						A2(
-						elm$html$Html$div,
-						_List_Nil,
-						_List_fromArray(
-							[
-								elm$html$Html$text(
-								'Mode : ' + (author$project$Main$formatMode(model.mode) + (' / Niveau : ' + author$project$Main$formatLevel(model.level))))
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_Nil,
-						_List_fromArray(
-							[
-								elm$html$Html$text(
-								elm$core$String$fromInt(model.correctAnswers) + ' bonnes réponses d\'affilée')
-							]))
-					]));
-		default:
-			return A2(
-				elm$html$Html$div,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('demotivator')
-					]),
-				_List_fromArray(
-					[
-						A2(
-						elm$html$Html$div,
-						_List_Nil,
-						_List_fromArray(
-							[
-								elm$html$Html$text(
-								'Mode : ' + (author$project$Main$formatMode(model.mode) + (' / Niveau : ' + author$project$Main$formatLevel(model.level))))
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_Nil,
-						_List_fromArray(
-							[
-								elm$html$Html$text(
-								author$project$Main$formatTime(author$project$Main$timeAttack - (model.time - model.startTime)))
-							]))
-					]));
-	}
+						elm$html$Html$text('Mode : ' + modeText)
+					]))
+			]));
 };
 var author$project$Main$renderQuestion = function (model) {
 	var levelQuestions = function () {
@@ -8947,149 +8915,172 @@ var author$project$Main$view = function (model) {
 		case 'SelectMode':
 			return A2(
 				elm$html$Html$div,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$id('picker')
-					]),
+				_List_Nil,
 				_List_fromArray(
 					[
 						A2(
 						elm$html$Html$div,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$id('game-intro')
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text('Bienvenue dans le Yoyo Quizz, le jeu pour apprendre ses breaks !')
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$id('picker-prompt')
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text('Choisis un mode de jeu :')
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('picker-choice')
+								elm$html$Html$Attributes$id('game-title')
 							]),
 						_List_fromArray(
 							[
 								A2(
-								elm$html$Html$button,
+								elm$html$Html$img,
 								_List_fromArray(
 									[
-										elm$html$Html$Events$onClick(
-										author$project$Main$SetMode(author$project$Main$Training))
+										elm$html$Html$Attributes$id('game-logo'),
+										elm$html$Html$Attributes$src('assets/img/logo_quizz.svg')
+									]),
+								_List_Nil)
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$id('picker')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$id('game-intro')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Bienvenue dans le Yoyo Quizz, le jeu pour apprendre ses breaks !')
+									])),
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$id('picker-prompt')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Choisis un mode de jeu :')
+									])),
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('picker-choice')
 									]),
 								_List_fromArray(
 									[
 										A2(
-										elm$html$Html$div,
+										elm$html$Html$button,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('picker-mode')
+												elm$html$Html$Events$onClick(
+												author$project$Main$SetMode(author$project$Main$Training))
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text(
-												author$project$Main$formatMode(author$project$Main$Training))
-											])),
-										A2(
-										elm$html$Html$div,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('picker-hint')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text('Jeu libre, pour jouer à progresser')
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-mode')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text(
+														author$project$Main$formatMode(author$project$Main$Training))
+													])),
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-hint')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text('Jeu libre, pour jouer à progresser')
+													]))
 											]))
-									]))
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('picker-choice')
-							]),
-						_List_fromArray(
-							[
+									])),
 								A2(
-								elm$html$Html$button,
+								elm$html$Html$div,
 								_List_fromArray(
 									[
-										elm$html$Html$Events$onClick(
-										author$project$Main$SetMode(author$project$Main$Streak))
+										elm$html$Html$Attributes$class('picker-choice')
 									]),
 								_List_fromArray(
 									[
 										A2(
-										elm$html$Html$div,
+										elm$html$Html$button,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('picker-mode')
+												elm$html$Html$Events$onClick(
+												author$project$Main$SetMode(author$project$Main$Streak))
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text(
-												author$project$Main$formatMode(author$project$Main$Streak))
-											])),
-										A2(
-										elm$html$Html$div,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('picker-hint')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text('La plus longue série de bonnes réponses !')
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-mode')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text(
+														author$project$Main$formatMode(author$project$Main$Streak))
+													])),
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-hint')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text('La plus longue série de bonnes réponses !')
+													]))
 											]))
-									]))
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('picker-choice')
-							]),
-						_List_fromArray(
-							[
+									])),
 								A2(
-								elm$html$Html$button,
+								elm$html$Html$div,
 								_List_fromArray(
 									[
-										elm$html$Html$Events$onClick(
-										author$project$Main$SetMode(author$project$Main$TimeAttack))
+										elm$html$Html$Attributes$class('picker-choice')
 									]),
 								_List_fromArray(
 									[
 										A2(
-										elm$html$Html$div,
+										elm$html$Html$button,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('picker-mode')
+												elm$html$Html$Events$onClick(
+												author$project$Main$SetMode(author$project$Main$TimeAttack))
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text(
-												author$project$Main$formatMode(author$project$Main$TimeAttack))
-											])),
-										A2(
-										elm$html$Html$div,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('picker-hint')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text('Le temps est limité, la pression monte...')
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-mode')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text(
+														author$project$Main$formatMode(author$project$Main$TimeAttack))
+													])),
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-hint')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text('Le temps est limité, la pression monte...')
+													]))
 											]))
 									]))
 							]))
@@ -9097,149 +9088,172 @@ var author$project$Main$view = function (model) {
 		case 'SelectLevel':
 			return A2(
 				elm$html$Html$div,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$id('picker')
-					]),
+				_List_Nil,
 				_List_fromArray(
 					[
 						A2(
 						elm$html$Html$div,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$id('game-intro')
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text('Bienvenue dans le Yoyo Quizz, le jeu pour apprendre ses breaks !')
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$id('picker-prompt')
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text('Choisis un niveau :')
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('picker-choice')
+								elm$html$Html$Attributes$id('game-title')
 							]),
 						_List_fromArray(
 							[
 								A2(
-								elm$html$Html$button,
+								elm$html$Html$img,
 								_List_fromArray(
 									[
-										elm$html$Html$Events$onClick(
-										author$project$Main$SetLevel(author$project$Main$Easy))
+										elm$html$Html$Attributes$id('game-logo'),
+										elm$html$Html$Attributes$src('assets/img/logo_quizz.svg')
+									]),
+								_List_Nil)
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$id('picker')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$id('game-intro')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Bienvenue dans le Yoyo Quizz, le jeu pour apprendre ses breaks !')
+									])),
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$id('picker-prompt')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Choisis un niveau :')
+									])),
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('picker-choice')
 									]),
 								_List_fromArray(
 									[
 										A2(
-										elm$html$Html$div,
+										elm$html$Html$button,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('picker-mode')
+												elm$html$Html$Events$onClick(
+												author$project$Main$SetLevel(author$project$Main$Easy))
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text(
-												author$project$Main$formatLevel(author$project$Main$Easy))
-											])),
-										A2(
-										elm$html$Html$div,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('picker-hint')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text('Plein d\'indices pour réussir')
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-mode')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text(
+														author$project$Main$formatLevel(author$project$Main$Easy))
+													])),
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-hint')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text('Plein d\'indices pour réussir')
+													]))
 											]))
-									]))
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('picker-choice')
-							]),
-						_List_fromArray(
-							[
+									])),
 								A2(
-								elm$html$Html$button,
+								elm$html$Html$div,
 								_List_fromArray(
 									[
-										elm$html$Html$Events$onClick(
-										author$project$Main$SetLevel(author$project$Main$Medium))
+										elm$html$Html$Attributes$class('picker-choice')
 									]),
 								_List_fromArray(
 									[
 										A2(
-										elm$html$Html$div,
+										elm$html$Html$button,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('picker-mode')
+												elm$html$Html$Events$onClick(
+												author$project$Main$SetLevel(author$project$Main$Medium))
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text(
-												author$project$Main$formatLevel(author$project$Main$Medium))
-											])),
-										A2(
-										elm$html$Html$div,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('picker-hint')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text('Aussi facile qu\'une presta !')
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-mode')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text(
+														author$project$Main$formatLevel(author$project$Main$Medium))
+													])),
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-hint')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text('Aussi facile qu\'une presta !')
+													]))
 											]))
-									]))
-							])),
-						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('picker-choice')
-							]),
-						_List_fromArray(
-							[
+									])),
 								A2(
-								elm$html$Html$button,
+								elm$html$Html$div,
 								_List_fromArray(
 									[
-										elm$html$Html$Events$onClick(
-										author$project$Main$SetLevel(author$project$Main$Hard))
+										elm$html$Html$Attributes$class('picker-choice')
 									]),
 								_List_fromArray(
 									[
 										A2(
-										elm$html$Html$div,
+										elm$html$Html$button,
 										_List_fromArray(
 											[
-												elm$html$Html$Attributes$class('picker-mode')
+												elm$html$Html$Events$onClick(
+												author$project$Main$SetLevel(author$project$Main$Hard))
 											]),
 										_List_fromArray(
 											[
-												elm$html$Html$text(
-												author$project$Main$formatLevel(author$project$Main$Hard))
-											])),
-										A2(
-										elm$html$Html$div,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('picker-hint')
-											]),
-										_List_fromArray(
-											[
-												elm$html$Html$text('C\'est Boun qui a écrit les questions...')
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-mode')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text(
+														author$project$Main$formatLevel(author$project$Main$Hard))
+													])),
+												A2(
+												elm$html$Html$div,
+												_List_fromArray(
+													[
+														elm$html$Html$Attributes$class('picker-hint')
+													]),
+												_List_fromArray(
+													[
+														elm$html$Html$text('C\'est Boun qui a écrit les questions...')
+													]))
 											]))
 									]))
 							]))
@@ -9270,6 +9284,23 @@ var author$project$Main$view = function (model) {
 				_List_Nil,
 				_List_fromArray(
 					[
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$id('game-title')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$img,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$id('game-logo'),
+										elm$html$Html$Attributes$src('assets/img/logo_quizz.svg')
+									]),
+								_List_Nil)
+							])),
 						A2(
 						elm$html$Html$div,
 						_List_fromArray(
