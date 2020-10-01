@@ -1,0 +1,254 @@
+body {
+  background: #D23789;
+  background-image: url("../img/zebra.svg");
+  background-size: cover;
+  margin: 10px;
+  font-family: "Segoe UI",Arial,sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  text-align: center;
+}
+
+#content {
+  background: white;
+  padding: 10px;
+}
+
+#game-title {}
+
+#game-logo {
+  width: 80%;
+  max-width: 500px;
+  margin: 20px auto 0px auto;
+}
+
+#game-intro {
+  margin: 20px;
+}
+
+#picker {
+  /*padding: 10px;*/
+}
+
+#picker-prompt {
+  font-style: italic;
+}
+
+#picker-title {
+  margin: 20px;
+}
+
+.picker-choice {
+  margin: auto;
+  /*width: 90%;*/
+}
+
+.picker-choice button {
+  width : 100%;
+  left: 50%;
+  background-color: #0E79B2;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.picker-choice button:hover {
+  background-color: #D23789;
+}
+
+.picker-mode {
+  color: white;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.picker-hint {
+  color: #CCC;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  padding: 10px;
+  margin: 5px;
+}
+
+button:hover  {
+  background-color: #0E79B2;
+  color: white;
+}
+
+img {
+  /*height: 200px;*/
+  display: block;
+}
+
+.name {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.demotivator {
+  margin-bottom: 20px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question-number {
+  /*padding: 10px;*/
+  font-weight: 400;
+  font-variant: bold;
+  font-size: 24px;
+}
+
+#prompt {
+  /*padding: 10px;*/
+  font-weight: 400;
+  font-size: 18px;
+}
+
+#hints {
+  margin: 20px auto 20px auto;
+  padding: 5px;
+  width: 90%;
+}
+
+.answer-prompt {
+  font-weight: 400;
+  font-variant: bold;
+  font-size: 24px;
+}
+
+.answer {
+  margin: 20px auto 20px auto;
+  padding: 5px;
+  width: 90%;
+}
+
+.audioHint {
+  margin: 10px;
+}
+
+audio {
+  width: 70%;
+  margin: auto;
+}
+
+.imgHint {
+  margin: 10px auto 10px auto;
+  max-width: 300px;
+  background-color: #ccc;
+}
+
+.answer img {
+  margin: 10px auto 10px auto;
+  max-width: 300px;
+  background-color: #ccc;
+}
+
+.track-answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-answer audio {
+  flex: 1 1;
+}
+
+.track-answer button {
+  flex: 1 1;
+}
+
+.nav-button:hover {
+  background-color: #D23789;
+  color: white;
+}
+
+.end-text-title {
+  font-weight: 400;
+  font-variant: bold;
+  font-size: 24px;
+  margin: 5px;
+  animation: wobble-hor-top 0.8s both;
+}
+
+.end-text {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.end-score {
+  margin: 20px;
+}
+
+.end-score-detail {
+  margin: 2px;
+}
+
+.end-score-congrats {
+  font-weight: 400;
+  font-variant: bold;
+  font-size: 20px;
+  margin: 5px;
+}
+
+@media (min-width: 500px) {
+  #content {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+}
+
+@media (min-width: 900px) {
+  #content {
+    width: 60%;
+    padding: 40px;
+  }
+
+  .picker-choice button {
+     width : 486px;
+   }
+}
+
+@keyframes tracking-in-contract-bck {
+  0% {
+    letter-spacing: 1em;
+    transform: translateZ(400px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes wobble-hor-top {
+  0%,
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-30px) rotate(6deg);
+  }
+  30% {
+    transform: translateX(15px) rotate(-6deg);
+  }
+  45% {
+    transform: translateX(-15px) rotate(3.6deg);
+  }
+  60% {
+    transform: translateX(9px) rotate(-2.4deg);
+  }
+  75% {
+    transform: translateX(-6px) rotate(1.2deg);
+  }
+}

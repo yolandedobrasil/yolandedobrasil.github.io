@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quizz</title>
+    <script src="./assets/js/quizz.js"></script>
+    <link rel="stylesheet" href="assets/css/w3.css">
+    <link rel="stylesheet" href="assets/css/quizz.css">
+</head>
+
+<body>
+  <div id="content">
+    <div id="game-title">
+      <img id="game-logo" src="assets/img/logo_quizz.svg">
+    </div>
+    <div id="elm">
+    </div>
+  </div>
+    <script>
+    fetch("breaks.json")
+      .then(response => response.json())
+      .then(breaks => Elm.Main.init({ node: document.getElementById('elm'), flags: breaks }));</script>
+</body>
+
+</html>
