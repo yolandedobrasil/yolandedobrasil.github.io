@@ -1,6 +1,7 @@
 *.aup
 *_data/
 *.MP3
+rushs/
 *.xcf
 *.m4a
 *.jpg
