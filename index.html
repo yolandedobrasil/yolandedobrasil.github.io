@@ -4,7 +4,8 @@
   <title>Jukebox Yolande</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./assets/css/w3.css"> 
+  <link rel="stylesheet" href="./assets/css/w3.css">
+  <link rel="stylesheet" href="./assets/css/home.css">
 </head>
 <body>
   <div id="content">
@@ -19,83 +20,11 @@
       </div>
     </div>
 
-    <ul class="w3-ul w3-border" id="breaks_list">
-      <h2>Les breaks 👇</h2>
-    </ul>
+    <h2>Les breaks 👇</h2>
+    <ul class="w3-border" id="breaks_list" />
 
   </div>
 
-  <style type="text/css">
-
-    body {
-      background: #D23789;
-      background-image: url("./assets/img/zebra.svg");
-      background-size: cover;
-      margin: 10px;
-    }
-    .logo-main {
-      width: 80px;
-      margin-right: 20px;
-    }
-    .logo-break {
-      width: 120px;
-    }
-    .li-break {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-    }
-    #content {
-      background: white;
-    }
-    h1 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      margin-top: 0px;
-      margin-bottom: 0px;
-    }
-    h2 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 28px;
-      padding: 5px;
-    }
-    a {
-      text-decoration: none;
-    }
-    .label {
-      color: #F0F;
-      font-weight: bold;
-      font-size: x-small;
-      text-transform: uppercase;
-      margin-left: 5px;
-    }
-    .li-break:hover .label {
-      color: #FFF;
-    }
-    .note {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    @media (min-width: 500px) {
-      #content {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    @media (min-width: 900px) {
-      #content {
-        width: 60%;
-      }
-    }
-  </style>
   <script>
     fetch("breaks.json")
       .then(response => response.json())
@@ -111,16 +40,16 @@
         let link = document.createElement("a")
           link.href = "./jukebox.html?break_id=" + break_id
           let listItem = document.createElement("li")
-            listItem.classList.add("li-break")
-            listItem.classList.add("w3-hover-pink")
+            // listItem.classList.add("li-break")
+            listItem.classList.add("w3-card")
             let sign = document.createElement("img")
-              sign.classList.add("logo-break")
+              sign.classList.add("item-logo")
               sign.src = brk["sign"]
               sign.alt = "Signe du break " + brk["name"]
             listItem.appendChild(sign)
             let breakDiv = document.createElement("div")
               let title = document.createElement("span")
-                title.classList.add("w3-large")
+                title.classList.add("item-title")
                 title.innerHTML = brk["name"]
                 if(!!brk["new"])
                 {

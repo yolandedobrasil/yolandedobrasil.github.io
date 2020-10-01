@@ -56,7 +56,7 @@
   },
   "imperatriz_2": {
     "name": "Imperatriz II",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/imperatriz_2/signe.png",
     "published": true,
     "new": false,
     "mix": "./breaks/imperatriz_2/mix.mp3",
@@ -106,7 +106,7 @@
   },
   "viradouro_2003": {
     "name": "Viradouro 2003",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/viradouro_2003/signe.png",
     "published": true,
     "new": false,
     "mix": "./breaks/viradouro_2003/mix.mp3",
@@ -141,7 +141,7 @@
   },
   "viradouro_tete": {
     "name": "Viradouro sur la tête",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/viradouro_tete/signe.png",
     "published": true,
     "new": false,
     "mix": "./breaks/viradouro_tete/mix.mp3",
@@ -181,7 +181,7 @@
   },
   "vague": {
     "name": "La Vague",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/vague/signe.png",
     "published": true,
     "new": false,
     "mix": "./breaks/vague/mix.mp3",
@@ -271,7 +271,7 @@
   },
   "pilou-petit": {
     "name": "Petit pilou",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/pilou-petit/signe.png",
     "published": true,
     "new": true,
     "mix": "./breaks/pilou-petit/mix.mp3",
@@ -316,7 +316,7 @@
   },
   "pilou-grand": {
     "name": "Grand pilou",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/pilou-grand/signe.png",
     "published": true,
     "new": true,
     "mix": "./breaks/pilou-grand/mix.mp3",
@@ -361,7 +361,7 @@
   },
   "pilou-1234": {
     "name": "Pilou 1234",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/pilou-1234/signe.png",
     "published": true,
     "new": true,
     "mix": "./breaks/pilou-1234/mix.mp3",
@@ -406,7 +406,7 @@
   },
   "grande_rio": {
     "name": "Grande Rio",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/grande_rio/signe.png",
     "published": true,
     "new": false,
     "mix": "./breaks/grande_rio/mix.mp3",
@@ -441,7 +441,7 @@
   },
   "poings": {
     "name": "Break poings",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/poings/signe.png",
     "published": true,
     "new": true,
     "mix": "./breaks/poings/mix.mp3",
@@ -486,7 +486,7 @@
   },
   "yolandetuq": {
     "name": "Yolandetuq",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/yolandetuq/signe.png",
     "published": true,
     "new": true,
     "mix": "./breaks/yolandetuq/mix.mp3",
@@ -571,7 +571,7 @@
   },
   "earth_wind_fire": {
     "name": "Earth, Wind & Fire",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/earth_wind_fire/signe.png",
     "published": false,
     "new": false,
     "mix": "./breaks/earth_wind_fire/mix.mp3",
@@ -604,7 +604,7 @@
     "sign": "./assets/img/yolande.png",
     "published": false,
     "new": false,
-    "mix": "./breaks/percus_weekend/mix.mp3",
+    "mix": "./breaks/percus_weekend/corporel.mp3",
     "tracks":
     [
       {

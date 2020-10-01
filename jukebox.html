@@ -9,10 +9,10 @@
 <body>
   <div id="content">
     <div id="title-block">
-      <h1 id="title-text">Nom du break</h1>
       <div id="title-img-wrapper">
         <img id="title-img" src="./assets/img/yolande.png" class="logo">
       </div>
+      <h1 id="title-text">Nom du break</h1>
     </div>
 
     <div id="speed-controls">
@@ -47,8 +47,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
-      margin-left: 35px;
     }
     h1 {
       font-family: "Segoe UI",Arial,sans-serif;
@@ -59,12 +57,14 @@
     }
     #title-text {
       flex: 1 1;
+      margin-left: 20px;
     }
     #title-img-wrapper {
       flex: 0 0;
     }
     #title-img {
-      height: 80px;
+      background-color: #ccc;
+      width: 120px;
     }
 
     #speed-controls {
@@ -131,11 +131,19 @@
         margin-left: auto;
         margin-right: auto;
       }
+      #title-img {
+        width: 200px;
+        margin: 5px;
+      }
     }
 
     @media (min-width: 900px) {
       #content {
         width: 60%;
+      }
+      #title-img {
+        width: 240px;
+        margin: 10px;
       }
     }
   </style>
