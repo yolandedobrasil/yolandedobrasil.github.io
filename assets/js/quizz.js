@@ -6293,6 +6293,7 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 	}
 };
 var elm$html$Html$audio = _VirtualDom_node('audio');
+var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
@@ -6342,9 +6343,7 @@ var author$project$Main$audioAndNameRender = function (_break) {
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('answer w3-card'),
-				elm$html$Html$Events$onClick(
-				author$project$Main$CheckAnswer(_break.name))
+				elm$html$Html$Attributes$class('answer w3-card track-answer')
 			]),
 		_List_fromArray(
 			[
@@ -6357,8 +6356,12 @@ var author$project$Main$audioAndNameRender = function (_break) {
 					]),
 				_List_Nil),
 				A2(
-				elm$html$Html$div,
-				_List_Nil,
+				elm$html$Html$button,
+				_List_fromArray(
+					[
+						elm$html$Html$Events$onClick(
+						author$project$Main$CheckAnswer(_break.name))
+					]),
 				_List_fromArray(
 					[
 						elm$html$Html$text(_break.name)
@@ -6371,9 +6374,7 @@ var author$project$Main$audioAndSignRender = function (_break) {
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('answer w3-card'),
-				elm$html$Html$Events$onClick(
-				author$project$Main$CheckAnswer(_break.name))
+				elm$html$Html$Attributes$class('answer w3-card')
 			]),
 		_List_fromArray(
 			[
@@ -6381,7 +6382,9 @@ var author$project$Main$audioAndSignRender = function (_break) {
 				elm$html$Html$img,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$src(_break.sign)
+						elm$html$Html$Attributes$src(_break.sign),
+						elm$html$Html$Events$onClick(
+						author$project$Main$CheckAnswer(_break.name))
 					]),
 				_List_Nil),
 				A2(
@@ -6394,15 +6397,12 @@ var author$project$Main$audioAndSignRender = function (_break) {
 				_List_Nil)
 			]));
 };
-var elm$html$Html$button = _VirtualDom_node('button');
 var author$project$Main$mixRender = function (_break) {
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('answer w3-card track-answer'),
-				elm$html$Html$Events$onClick(
-				author$project$Main$CheckAnswer(_break.name))
+				elm$html$Html$Attributes$class('answer w3-card track-answer')
 			]),
 		_List_fromArray(
 			[
@@ -6416,7 +6416,11 @@ var author$project$Main$mixRender = function (_break) {
 				_List_Nil),
 				A2(
 				elm$html$Html$button,
-				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$Events$onClick(
+						author$project$Main$CheckAnswer(_break.name))
+					]),
 				_List_fromArray(
 					[
 						elm$html$Html$text('Celui-ci')
@@ -6425,22 +6429,15 @@ var author$project$Main$mixRender = function (_break) {
 };
 var author$project$Main$nameRender = function (_break) {
 	return A2(
-		elm$html$Html$div,
+		elm$html$Html$button,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('answer w3-card'),
 				elm$html$Html$Events$onClick(
 				author$project$Main$CheckAnswer(_break.name))
 			]),
 		_List_fromArray(
 			[
-				A2(
-				elm$html$Html$button,
-				_List_Nil,
-				_List_fromArray(
-					[
-						elm$html$Html$text(_break.name)
-					]))
+				elm$html$Html$text(_break.name)
 			]));
 };
 var author$project$Main$signAndNameRender = function (_break) {
@@ -6525,6 +6522,7 @@ var author$project$Main$answerChoices = F2(
 					A2(elm$core$List$map, author$project$Main$audioAndNameRender, breaks));
 		}
 	});
+var elm$html$Html$Attributes$autoplay = elm$html$Html$Attributes$boolProperty('autoplay');
 var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
 var author$project$Main$audioAndNameToSign = function (_n0) {
 	var breakPool = _n0.breakPool;
@@ -6569,7 +6567,8 @@ var author$project$Main$audioAndNameToSign = function (_n0) {
 							[
 								elm$html$Html$Attributes$class('audioHint'),
 								elm$html$Html$Attributes$src(guessBreak.mix),
-								elm$html$Html$Attributes$controls(true)
+								elm$html$Html$Attributes$controls(true),
+								elm$html$Html$Attributes$autoplay(true)
 							]),
 						_List_Nil)
 					])),
@@ -6587,7 +6586,6 @@ var author$project$Main$audioAndNameToSign = function (_n0) {
 			]));
 };
 var author$project$Main$NameAnswer = {$: 'NameAnswer'};
-var elm$html$Html$Attributes$autoplay = elm$html$Html$Attributes$boolProperty('autoplay');
 var author$project$Main$audioAndSignToName = function (_n0) {
 	var breakPool = _n0.breakPool;
 	var guessBreak = _n0.guessBreak;
@@ -6728,14 +6726,6 @@ var author$project$Main$nameAndSignToAudio = function (_n0) {
 				_List_fromArray(
 					[
 						A2(
-						elm$html$Html$img,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('imgHint'),
-								elm$html$Html$Attributes$src(guessBreak.sign)
-							]),
-						_List_Nil),
-						A2(
 						elm$html$Html$div,
 						_List_fromArray(
 							[
@@ -6744,7 +6734,15 @@ var author$project$Main$nameAndSignToAudio = function (_n0) {
 						_List_fromArray(
 							[
 								elm$html$Html$text(guessBreak.name)
-							]))
+							])),
+						A2(
+						elm$html$Html$img,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('imgHint'),
+								elm$html$Html$Attributes$src(guessBreak.sign)
+							]),
+						_List_Nil)
 					])),
 				A2(
 				elm$html$Html$div,
@@ -7042,9 +7040,7 @@ var author$project$Main$trackRender = function (_n0) {
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('answer w3-card track-answer'),
-				elm$html$Html$Events$onClick(
-				author$project$Main$CheckAnswer(breakName))
+				elm$html$Html$Attributes$class('answer w3-card track-answer')
 			]),
 		_List_fromArray(
 			[
@@ -7058,7 +7054,11 @@ var author$project$Main$trackRender = function (_n0) {
 				_List_Nil),
 				A2(
 				elm$html$Html$button,
-				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$Events$onClick(
+						author$project$Main$CheckAnswer(breakName))
+					]),
 				_List_fromArray(
 					[
 						elm$html$Html$text('Celui-ci')
@@ -8477,7 +8477,7 @@ var author$project$Main$update = F2(
 								elm$random$Random$int,
 								0,
 								elm$core$List$length(
-									author$project$Main$noMestre(model.guessBreak.tracks)))));
+									author$project$Main$noMestre(model.guessBreak.tracks)) - 1)));
 				case 'SelectQuestionTrack':
 					var diceRoll = _n0.a;
 					var guessTrack = function () {
