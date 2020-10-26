@@ -1,4 +1,49 @@
 {
+  "1": {
+    "name": "Tourne 1",
+    "sign": "./breaks/1/signe.png",
+    "published": false,
+    "new": true,
+    "mix": "./breaks/1/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/1/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/1/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/1/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/1/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/1/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/1/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/1/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
   "g": {
     "name": "Break G",
     "sign": "./breaks/g/signe.png",
@@ -488,8 +533,63 @@
         "icon": "./assets/img/repique.png"
       },
       {
+        "id": "surdo1",
+        "audio": "./breaks/grande_rio/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/grande_rio/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
         "id": "surdo3",
         "audio": "./breaks/grande_rio/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "namaste": {
+    "name": "Namasté",
+    "sign": "./breaks/namaste/signe.png",
+    "published": false,
+    "new": true,
+    "mix": "./breaks/namaste/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/namaste/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/namaste/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/namaste/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/namaste/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/namaste/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/namaste/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/namaste/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
@@ -566,6 +666,11 @@
         "id": "tamborim",
         "audio": "./breaks/yolandetuq/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/yolandetuq/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
       },
       {
         "id": "repique",
@@ -648,14 +753,34 @@
         "icon": "./assets/img/mestre.png"
       },
       {
+        "id": "agogo",
+        "audio": "./breaks/earth_wind_fire/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/earth_wind_fire/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
       },
       {
+        "id": "caisse",
+        "audio": "./breaks/earth_wind_fire/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
         "id": "repique",
         "audio": "./breaks/earth_wind_fire/repique.mp3",
         "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/earth_wind_fire/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/earth_wind_fire/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
       },
       {
         "id": "surdo3",
