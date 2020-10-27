@@ -2,7 +2,7 @@
   "1": {
     "name": "Tourne 1",
     "sign": "./breaks/1/signe.png",
-    "published": false,
+    "published": true,
     "new": true,
     "mix": "./breaks/1/mix.mp3",
     "tracks":
@@ -16,6 +16,11 @@
         "id": "agogo",
         "audio": "./breaks/1/agogo.mp3",
         "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/1/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
       },
       {
         "id": "caisse",
@@ -552,7 +557,7 @@
   "namaste": {
     "name": "Namasté",
     "sign": "./breaks/namaste/signe.png",
-    "published": false,
+    "published": true,
     "new": true,
     "mix": "./breaks/namaste/mix.mp3",
     "tracks":
@@ -566,6 +571,11 @@
         "id": "agogo",
         "audio": "./breaks/namaste/agogo.mp3",
         "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/namaste/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
       },
       {
         "id": "caisse",
