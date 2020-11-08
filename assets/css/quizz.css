@@ -12,6 +12,9 @@ body {
 #content {
   background: white;
   padding: 10px;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #game-title {}
@@ -39,6 +42,7 @@ body {
 
 .picker-choice {
   margin: auto;
+  max-width : 800px;
 }
 
 .picker-choice button {
@@ -86,7 +90,48 @@ img {
 }
 
 .demotivator {
-  margin-bottom: 20px;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.demotivator-nav-button {
+  font-size: 10px;
+  padding: 5px;
+  margin: 0px;
+  display: block;
+  background-color: #FFF;
+  color: #D23789;
+}
+
+.demotivator-nav-button:hover {
+  background-color: #D23789;
+  color: #FFF;
+}
+
+hr {
+  margin: 5px;
+}
+
+#back-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-back-button {
+  font-size: 14px;
+  padding: 5px;
+  margin: 10px;
+  display: block;
+  background-color: #FFF;
+  color: #D23789;
+}
+
+.menu-back-button:hover {
+  background-color: #D23789;
+  color: #FFF;
 }
 
 .question {
@@ -155,12 +200,20 @@ audio {
   align-items: center;
 }
 
-.track-answer audio {
+.track-answer button {
   flex: 1 1;
 }
 
-.track-answer button {
-  flex: 1 1;
+.text-answer {
+  max-width: 600px;
+}
+
+.text-answer #answer-input {
+  width: 80%;
+}
+
+.text-answer #answer-button {
+  width: 15%;
 }
 
 .nav-button:hover {
@@ -196,6 +249,7 @@ audio {
   margin: 5px;
 }
 
+/*
 @media (min-width: 500px) {
   #content {
     width: 80%;
@@ -215,6 +269,7 @@ audio {
      width : 486px;
    }
 }
+*/
 
 @keyframes tracking-in-contract-bck {
   0% {

@@ -4929,6 +4929,10 @@ var NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required = F3(
 			A2(elm$json$Json$Decode$field, key, valDecoder),
 			decoder);
 	});
+var author$project$Main$UserDataAndBreaks = F2(
+	function (userData, breaks) {
+		return {breaks: breaks, userData: userData};
+	});
 var author$project$Main$Break = F5(
 	function (name, sign, mix, published, tracks) {
 		return {mix: mix, name: name, published: published, sign: sign, tracks: tracks};
@@ -5108,6 +5112,203 @@ var elm$json$Json$Decode$dict = function (decoder) {
 		elm$json$Json$Decode$keyValuePairs(decoder));
 };
 var author$project$Main$breaksDecoder = elm$json$Json$Decode$dict(author$project$Main$breakDecoder);
+var elm$json$Json$Decode$andThen = _Json_andThen;
+var elm$json$Json$Decode$decodeValue = _Json_run;
+var elm$json$Json$Decode$fail = _Json_fail;
+var elm$json$Json$Decode$null = _Json_decodeNull;
+var elm$json$Json$Decode$oneOf = _Json_oneOf;
+var elm$json$Json$Decode$value = _Json_decodeValue;
+var NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$optionalDecoder = F3(
+	function (pathDecoder, valDecoder, fallback) {
+		var nullOr = function (decoder) {
+			return elm$json$Json$Decode$oneOf(
+				_List_fromArray(
+					[
+						decoder,
+						elm$json$Json$Decode$null(fallback)
+					]));
+		};
+		var handleResult = function (input) {
+			var _n0 = A2(elm$json$Json$Decode$decodeValue, pathDecoder, input);
+			if (_n0.$ === 'Ok') {
+				var rawValue = _n0.a;
+				var _n1 = A2(
+					elm$json$Json$Decode$decodeValue,
+					nullOr(valDecoder),
+					rawValue);
+				if (_n1.$ === 'Ok') {
+					var finalResult = _n1.a;
+					return elm$json$Json$Decode$succeed(finalResult);
+				} else {
+					var finalErr = _n1.a;
+					return elm$json$Json$Decode$fail(
+						elm$json$Json$Decode$errorToString(finalErr));
+				}
+			} else {
+				return elm$json$Json$Decode$succeed(fallback);
+			}
+		};
+		return A2(elm$json$Json$Decode$andThen, handleResult, elm$json$Json$Decode$value);
+	});
+var NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$optional = F4(
+	function (key, valDecoder, fallback, decoder) {
+		return A2(
+			NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom,
+			A3(
+				NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$optionalDecoder,
+				A2(elm$json$Json$Decode$field, key, elm$json$Json$Decode$value),
+				valDecoder,
+				fallback),
+			decoder);
+	});
+var author$project$Main$UserData = function (v1) {
+	return {v1: v1};
+};
+var author$project$Main$GameSession = F6(
+	function (mode, level, startTime, stopTime, result, questions) {
+		return {level: level, mode: mode, questions: questions, result: result, startTime: startTime, stopTime: stopTime};
+	});
+var author$project$Main$AnsweredQuestion = F3(
+	function (chrono, question, userAnswer) {
+		return {chrono: chrono, question: question, userAnswer: userAnswer};
+	});
+var author$project$Main$NakedQuestion = F3(
+	function (questionType, _break, track) {
+		return {_break: _break, questionType: questionType, track: track};
+	});
+var author$project$Main$nakedQuestionDecoder = A3(
+	NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+	'track',
+	elm$json$Json$Decode$string,
+	A3(
+		NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+		'break',
+		elm$json$Json$Decode$string,
+		A3(
+			NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+			'questionType',
+			elm$json$Json$Decode$string,
+			elm$json$Json$Decode$succeed(author$project$Main$NakedQuestion))));
+var author$project$Main$UserAnswer = F2(
+	function (_break, track) {
+		return {_break: _break, track: track};
+	});
+var author$project$Main$userAnswerDecoder = A3(
+	NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+	'track',
+	elm$json$Json$Decode$string,
+	A3(
+		NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+		'break',
+		elm$json$Json$Decode$string,
+		elm$json$Json$Decode$succeed(author$project$Main$UserAnswer)));
+var elm$json$Json$Decode$int = _Json_decodeInt;
+var author$project$Main$answeredQuestionDecoder = A3(
+	NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+	'userAnswer',
+	author$project$Main$userAnswerDecoder,
+	A3(
+		NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+		'question',
+		author$project$Main$nakedQuestionDecoder,
+		A3(
+			NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+			'chrono',
+			elm$json$Json$Decode$int,
+			elm$json$Json$Decode$succeed(author$project$Main$AnsweredQuestion))));
+var author$project$Main$Hard = {$: 'Hard'};
+var author$project$Main$Medium = {$: 'Medium'};
+var author$project$Main$levelDecoder = A2(
+	elm$json$Json$Decode$andThen,
+	function (level) {
+		switch (level) {
+			case 'Easy':
+				return elm$json$Json$Decode$succeed(author$project$Main$Easy);
+			case 'Medium':
+				return elm$json$Json$Decode$succeed(author$project$Main$Medium);
+			case 'Hard':
+				return elm$json$Json$Decode$succeed(author$project$Main$Hard);
+			default:
+				var somethingElse = level;
+				return elm$json$Json$Decode$fail('Unknown level : ' + somethingElse);
+		}
+	},
+	elm$json$Json$Decode$string);
+var author$project$Main$Streak = {$: 'Streak'};
+var author$project$Main$TimeAttack = {$: 'TimeAttack'};
+var author$project$Main$modeDecoder = A2(
+	elm$json$Json$Decode$andThen,
+	function (mode) {
+		switch (mode) {
+			case 'Training':
+				return elm$json$Json$Decode$succeed(author$project$Main$Training);
+			case 'Streak':
+				return elm$json$Json$Decode$succeed(author$project$Main$Streak);
+			case 'TimeAttack':
+				return elm$json$Json$Decode$succeed(author$project$Main$TimeAttack);
+			default:
+				var somethingElse = mode;
+				return elm$json$Json$Decode$fail('Unknown mode : ' + somethingElse);
+		}
+	},
+	elm$json$Json$Decode$string);
+var author$project$Main$gameSessionDecoder = A3(
+	NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+	'questions',
+	elm$json$Json$Decode$list(author$project$Main$answeredQuestionDecoder),
+	A3(
+		NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+		'result',
+		elm$json$Json$Decode$int,
+		A3(
+			NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+			'stopTime',
+			elm$json$Json$Decode$int,
+			A3(
+				NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+				'startTime',
+				elm$json$Json$Decode$int,
+				A3(
+					NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+					'level',
+					author$project$Main$levelDecoder,
+					A3(
+						NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+						'mode',
+						author$project$Main$modeDecoder,
+						elm$json$Json$Decode$succeed(author$project$Main$GameSession)))))));
+var author$project$Main$userDataDecoder = A4(
+	NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$optional,
+	'v1',
+	elm$json$Json$Decode$list(author$project$Main$gameSessionDecoder),
+	_List_Nil,
+	elm$json$Json$Decode$succeed(author$project$Main$UserData));
+var author$project$Main$flagsDecoder = A3(
+	NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+	'breaks',
+	author$project$Main$breaksDecoder,
+	A3(
+		NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+		'userData',
+		author$project$Main$userDataDecoder,
+		elm$json$Json$Decode$succeed(author$project$Main$UserDataAndBreaks)));
+var elm$core$Debug$log = _Debug_log;
+var author$project$Main$decodeFlags = function (flags) {
+	var _n0 = A2(elm$json$Json$Decode$decodeValue, author$project$Main$flagsDecoder, flags);
+	if (_n0.$ === 'Ok') {
+		var model = _n0.a;
+		return model;
+	} else {
+		var err = _n0.a;
+		var error = A2(elm$core$Debug$log, 'JSON decoding failed', err);
+		return {
+			breaks: elm$core$Dict$empty,
+			userData: {v1: _List_Nil}
+		};
+	}
+};
+var author$project$Main$emptyBreak = {mix: 'Pas d\'audio', name: 'Pas de break', published: false, sign: 'Pas de signe', tracks: _List_Nil};
+var author$project$Main$emptyTrack = {audio: '', icon: '', id: 'Pas de piste'};
 var author$project$Main$onlyPublished = F2(
 	function (name, _break) {
 		return _break.published;
@@ -5148,19 +5349,9 @@ var elm$core$Dict$filter = F2(
 			elm$core$Dict$empty,
 			dict);
 	});
-var elm$json$Json$Decode$decodeValue = _Json_run;
-var author$project$Main$decodeBreaks = function (breaks) {
-	var _n0 = A2(elm$json$Json$Decode$decodeValue, author$project$Main$breaksDecoder, breaks);
-	if (_n0.$ === 'Ok') {
-		var model = _n0.a;
-		return A2(elm$core$Dict$filter, author$project$Main$onlyPublished, model);
-	} else {
-		var e = _n0.a;
-		return elm$core$Dict$empty;
-	}
+var author$project$Main$removeUnpublished = function (breaks) {
+	return A2(elm$core$Dict$filter, author$project$Main$onlyPublished, breaks);
 };
-var author$project$Main$emptyBreak = {mix: 'Pas d\'audio', name: 'Pas de break', published: false, sign: 'Pas de signe', tracks: _List_Nil};
-var author$project$Main$emptyTrack = {audio: '', icon: '', id: 'Pas de piste'};
 var elm$core$Basics$identity = function (x) {
 	return x;
 };
@@ -5325,15 +5516,16 @@ var elm$time$Time$Zone = F2(
 var elm$time$Time$customZone = elm$time$Time$Zone;
 var elm$time$Time$here = _Time_here(_Utils_Tuple0);
 var elm$time$Time$utc = A2(elm$time$Time$Zone, 0, _List_Nil);
-var author$project$Main$init = function (jBreaks) {
-	var breaks = author$project$Main$decodeBreaks(jBreaks);
+var author$project$Main$init = function (flags) {
+	var userDataAndBreaks = author$project$Main$decodeFlags(flags);
+	var breaks = author$project$Main$removeUnpublished(userDataAndBreaks.breaks);
 	return _Utils_Tuple2(
 		{
 			breakList: elm$core$Dict$keys(breaks),
 			breakPool: _List_Nil,
 			breaks: breaks,
 			correctAnswers: 0,
-			endTime: 0,
+			currentSession: elm$core$Maybe$Nothing,
 			guessBreak: author$project$Main$emptyBreak,
 			guessTrack: author$project$Main$emptyTrack,
 			level: author$project$Main$Easy,
@@ -5345,17 +5537,22 @@ var author$project$Main$init = function (jBreaks) {
 			shuffledName: '',
 			startTime: 0,
 			state: author$project$Main$SelectMode,
+			stopTime: 0,
 			textAnswer: '',
 			textAnswerKey: 0,
 			time: 0,
 			trackPool: _List_Nil,
+			userData: userDataAndBreaks.userData,
 			zone: elm$time$Time$utc
 		},
 		A2(elm$core$Task$perform, author$project$Main$AdjustTimeZone, elm$time$Time$here));
 };
+var author$project$Main$Play = {$: 'Play'};
 var author$project$Main$Tick = function (a) {
 	return {$: 'Tick', a: a};
 };
+var elm$core$Platform$Sub$batch = _Platform_batch;
+var elm$core$Platform$Sub$none = elm$core$Platform$Sub$batch(_List_Nil);
 var elm$time$Time$Every = F2(
 	function (a, b) {
 		return {$: 'Every', a: a, b: b};
@@ -5625,11 +5822,136 @@ var elm$time$Time$every = F2(
 			A2(elm$time$Time$Every, interval, tagger));
 	});
 var author$project$Main$subscriptions = function (model) {
-	return A2(elm$time$Time$every, 100, author$project$Main$Tick);
+	return (_Utils_eq(model.mode, author$project$Main$TimeAttack) && _Utils_eq(model.state, author$project$Main$Play)) ? A2(elm$time$Time$every, 1000, author$project$Main$Tick) : elm$core$Platform$Sub$none;
 };
-var author$project$Main$Advance = function (a) {
-	return {$: 'Advance', a: a};
+var elm$json$Json$Encode$object = function (pairs) {
+	return _Json_wrap(
+		A3(
+			elm$core$List$foldl,
+			F2(
+				function (_n0, obj) {
+					var k = _n0.a;
+					var v = _n0.b;
+					return A3(_Json_addField, k, v, obj);
+				}),
+			_Json_emptyObject(_Utils_Tuple0),
+			pairs));
 };
+var elm$json$Json$Encode$string = _Json_wrap;
+var author$project$Main$nakedQuestionEncoder = function (nq) {
+	return elm$json$Json$Encode$object(
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'questionType',
+				elm$json$Json$Encode$string(nq.questionType)),
+				_Utils_Tuple2(
+				'break',
+				elm$json$Json$Encode$string(nq._break)),
+				_Utils_Tuple2(
+				'track',
+				elm$json$Json$Encode$string(nq.track))
+			]));
+};
+var author$project$Main$userAnswerEncoder = function (ua) {
+	return elm$json$Json$Encode$object(
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'break',
+				elm$json$Json$Encode$string(ua._break)),
+				_Utils_Tuple2(
+				'track',
+				elm$json$Json$Encode$string(ua.track))
+			]));
+};
+var elm$json$Json$Encode$int = _Json_wrap;
+var author$project$Main$answeredQuestionEncoder = function (aq) {
+	return elm$json$Json$Encode$object(
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'chrono',
+				elm$json$Json$Encode$int(aq.chrono)),
+				_Utils_Tuple2(
+				'question',
+				author$project$Main$nakedQuestionEncoder(aq.question)),
+				_Utils_Tuple2(
+				'userAnswer',
+				author$project$Main$userAnswerEncoder(aq.userAnswer))
+			]));
+};
+var author$project$Main$levelEncoder = function (level) {
+	switch (level.$) {
+		case 'Easy':
+			return elm$json$Json$Encode$string('Easy');
+		case 'Medium':
+			return elm$json$Json$Encode$string('Medium');
+		default:
+			return elm$json$Json$Encode$string('Hard');
+	}
+};
+var author$project$Main$modeEncoder = function (mode) {
+	switch (mode.$) {
+		case 'Training':
+			return elm$json$Json$Encode$string('Training');
+		case 'Streak':
+			return elm$json$Json$Encode$string('Streak');
+		default:
+			return elm$json$Json$Encode$string('TimeAttack');
+	}
+};
+var elm$json$Json$Encode$list = F2(
+	function (func, entries) {
+		return _Json_wrap(
+			A3(
+				elm$core$List$foldl,
+				_Json_addEntry(func),
+				_Json_emptyArray(_Utils_Tuple0),
+				entries));
+	});
+var author$project$Main$gameSessionEncoder = function (gs) {
+	return elm$json$Json$Encode$object(
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'mode',
+				author$project$Main$modeEncoder(gs.mode)),
+				_Utils_Tuple2(
+				'level',
+				author$project$Main$levelEncoder(gs.level)),
+				_Utils_Tuple2(
+				'startTime',
+				elm$json$Json$Encode$int(gs.startTime)),
+				_Utils_Tuple2(
+				'stopTime',
+				elm$json$Json$Encode$int(gs.stopTime)),
+				_Utils_Tuple2(
+				'result',
+				elm$json$Json$Encode$int(gs.result)),
+				_Utils_Tuple2(
+				'questions',
+				A2(elm$json$Json$Encode$list, author$project$Main$answeredQuestionEncoder, gs.questions))
+			]));
+};
+var author$project$Main$encode = function (ud) {
+	return elm$json$Json$Encode$object(
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'v1',
+				A2(elm$json$Json$Encode$list, author$project$Main$gameSessionEncoder, ud.v1))
+			]));
+};
+var author$project$Main$setStorage = _Platform_outgoingPort('setStorage', elm$core$Basics$identity);
+var author$project$Main$Advance = F4(
+	function (a, b, c, d) {
+		return {$: 'Advance', a: a, b: b, c: c, d: d};
+	});
+var author$project$Main$CheckTrackAnswer = F2(
+	function (a, b) {
+		return {$: 'CheckTrackAnswer', a: a, b: b};
+	});
 var author$project$Main$DrawAnswerTrack = {$: 'DrawAnswerTrack'};
 var author$project$Main$DrawBreak = {$: 'DrawBreak'};
 var author$project$Main$DrawQuestionType = {$: 'DrawQuestionType'};
@@ -5639,7 +5961,6 @@ var author$project$Main$FocusResult = function (a) {
 };
 var author$project$Main$PickBreak = {$: 'PickBreak'};
 var author$project$Main$PickQuestionTrack = {$: 'PickQuestionTrack'};
-var author$project$Main$Play = {$: 'Play'};
 var author$project$Main$RandomAnswerTrack = function (a) {
 	return {$: 'RandomAnswerTrack', a: a};
 };
@@ -5657,24 +5978,23 @@ var author$project$Main$SelectLevel = {$: 'SelectLevel'};
 var author$project$Main$SelectQuestionTrack = function (a) {
 	return {$: 'SelectQuestionTrack', a: a};
 };
-var author$project$Main$SetQuestionStartTime = {$: 'SetQuestionStartTime'};
+var author$project$Main$SetQuestionStartTime = function (a) {
+	return {$: 'SetQuestionStartTime', a: a};
+};
 var author$project$Main$SetStartTime = function (a) {
 	return {$: 'SetStartTime', a: a};
+};
+var author$project$Main$SetStopTime = function (a) {
+	return {$: 'SetStopTime', a: a};
 };
 var author$project$Main$ShuffleBreakName = function (a) {
 	return {$: 'ShuffleBreakName', a: a};
 };
 var author$project$Main$Stop = {$: 'Stop'};
-var author$project$Main$Streak = {$: 'Streak'};
-var author$project$Main$TimeAttack = {$: 'TimeAttack'};
-var elm$core$Debug$log = _Debug_log;
-var author$project$Main$logMessage = function (msg) {
-	if (msg.$ === 'Tick') {
-		return msg;
-	} else {
-		return A2(elm$core$Debug$log, 'msg', msg);
-	}
-};
+var author$project$Main$TimeQuestion = F3(
+	function (a, b, c) {
+		return {$: 'TimeQuestion', a: a, b: b, c: c};
+	});
 var tripokey$elm_fuzzy$Fuzzy$AddPenalty = function (a) {
 	return {$: 'AddPenalty', a: a};
 };
@@ -6274,8 +6594,6 @@ var author$project$Main$noMestre = function (tracks) {
 		},
 		tracks);
 };
-var author$project$Main$Hard = {$: 'Hard'};
-var author$project$Main$Medium = {$: 'Medium'};
 var author$project$Main$SignAnswer = {$: 'SignAnswer'};
 var author$project$Main$CheckAnswer = function (a) {
 	return {$: 'CheckAnswer', a: a};
@@ -6297,7 +6615,6 @@ var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-var elm$json$Json$Encode$string = _Json_wrap;
 var elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
 		return A2(
@@ -6908,10 +7225,7 @@ var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
 		_VirtualDom_noScript(tag));
 };
 var elm$html$Html$Keyed$node = elm$virtual_dom$VirtualDom$keyedNode;
-var elm$json$Json$Decode$int = _Json_decodeInt;
 var elm$html$Html$Events$keyCode = A2(elm$json$Json$Decode$field, 'keyCode', elm$json$Json$Decode$int);
-var elm$json$Json$Decode$andThen = _Json_andThen;
-var elm$json$Json$Decode$fail = _Json_fail;
 var elm_community$html_extra$Html$Events$Extra$onEnter = function (onEnterAction) {
 	return A2(
 		elm$html$Html$Events$on,
@@ -6930,7 +7244,7 @@ var author$project$Main$fuzzyField = F2(
 			elm$html$Html$div,
 			_List_fromArray(
 				[
-					elm$html$Html$Attributes$class('answer')
+					elm$html$Html$Attributes$class('answer text-answer')
 				]),
 			_List_fromArray(
 				[
@@ -6949,7 +7263,7 @@ var author$project$Main$fuzzyField = F2(
 										elm$html$Html$Attributes$type_('text'),
 										elm$html$Html$Events$onInput(author$project$Main$UpdateTextFieldAnswer),
 										elm$html$Html$Attributes$value(textAnswer),
-										elm$html$Html$Attributes$id('answerInput'),
+										elm$html$Html$Attributes$id('answer-input'),
 										elm_community$html_extra$Html$Events$Extra$onEnter(author$project$Main$CheckTextFieldAnswer)
 									]),
 								_List_Nil))
@@ -6958,7 +7272,8 @@ var author$project$Main$fuzzyField = F2(
 					elm$html$Html$button,
 					_List_fromArray(
 						[
-							elm$html$Html$Events$onClick(author$project$Main$CheckTextFieldAnswer)
+							elm$html$Html$Events$onClick(author$project$Main$CheckTextFieldAnswer),
+							elm$html$Html$Attributes$id('answer-button')
 						]),
 					_List_fromArray(
 						[
@@ -7048,7 +7363,7 @@ var author$project$Main$trackRender = function (_n0) {
 				_List_fromArray(
 					[
 						elm$html$Html$Events$onClick(
-						author$project$Main$CheckAnswer(breakName))
+						A2(author$project$Main$CheckTrackAnswer, breakName, track.id))
 					]),
 				_List_fromArray(
 					[
@@ -8274,10 +8589,9 @@ var author$project$Main$update = F2(
 	function (msg, model) {
 		update:
 		while (true) {
-			var _n0 = author$project$Main$logMessage(msg);
-			switch (_n0.$) {
+			switch (msg.$) {
 				case 'AdjustTimeZone':
-					var zone = _n0.a;
+					var zone = msg.a;
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
@@ -8287,38 +8601,43 @@ var author$project$Main$update = F2(
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{correctAnswers: 0, questionsAsked: 0, state: author$project$Main$SelectMode, textAnswer: ''}),
+							{correctAnswers: 0, currentSession: elm$core$Maybe$Nothing, questionsAsked: 0, state: author$project$Main$SelectMode, textAnswer: ''}),
 						elm$core$Platform$Cmd$none);
 				case 'SetMode':
-					var mode = _n0.a;
+					var mode = msg.a;
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
 							{mode: mode, state: author$project$Main$SelectLevel}),
 						elm$core$Platform$Cmd$none);
 				case 'SetLevel':
-					var level = _n0.a;
+					var level = msg.a;
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
 							{level: level, state: author$project$Main$Play}),
 						A2(elm$core$Task$perform, author$project$Main$SetStartTime, elm$time$Time$now));
 				case 'SetStartTime':
-					var time = _n0.a;
+					var posixTime = msg.a;
+					var aTime = elm$time$Time$posixToMillis(posixTime);
 					var $temp$msg = author$project$Main$DrawQuestionType,
 						$temp$model = _Utils_update(
 						model,
 						{
-							startTime: elm$time$Time$posixToMillis(time)
+							currentSession: elm$core$Maybe$Just(
+								{level: model.level, mode: model.mode, questions: _List_Nil, result: 0, startTime: aTime, stopTime: aTime}),
+							questionStartTime: aTime,
+							startTime: aTime,
+							time: aTime
 						});
 					msg = $temp$msg;
 					model = $temp$model;
 					continue update;
 				case 'Tick':
-					var time = _n0.a;
-					if (_Utils_eq(model.mode, author$project$Main$TimeAttack) && (_Utils_eq(model.state, author$project$Main$Play) && (_Utils_cmp(
+					var time = msg.a;
+					if (_Utils_cmp(
 						elm$time$Time$posixToMillis(time) - model.startTime,
-						author$project$Main$timeAttack) > 0))) {
+						author$project$Main$timeAttack) > 0) {
 						var $temp$msg = author$project$Main$Stop,
 							$temp$model = _Utils_update(
 							model,
@@ -8351,7 +8670,7 @@ var author$project$Main$update = F2(
 							author$project$Main$RandomQuestionType,
 							author$project$Main$questionChooser(model.level)));
 				case 'RandomQuestionType':
-					var _n1 = _n0.a;
+					var _n1 = msg.a;
 					var questionName = _n1.a;
 					var otherQuestions = _n1.b;
 					if (questionName.$ === 'Just') {
@@ -8386,7 +8705,7 @@ var author$project$Main$update = F2(
 						continue update;
 					}
 				case 'RandomBreak':
-					var _n3 = _n0.a;
+					var _n3 = msg.a;
 					var selected = _n3.a;
 					var remaining = _n3.b;
 					var breakToAdd = function () {
@@ -8425,7 +8744,7 @@ var author$project$Main$update = F2(
 								0,
 								elm$core$List$length(model.breakPool) - 1)));
 				case 'SelectBreak':
-					var diceRoll = _n0.a;
+					var diceRoll = msg.a;
 					var guessBreak = function () {
 						var _n6 = A2(
 							elm$core$Array$get,
@@ -8448,7 +8767,7 @@ var author$project$Main$update = F2(
 							elm_community$random_extra$Random$List$shuffle(
 								elm$core$String$toList(guessBreak.name))));
 				case 'ShuffleBreakName':
-					var shuffled = _n0.a;
+					var shuffled = msg.a;
 					var $temp$msg = author$project$Main$PickQuestionTrack,
 						$temp$model = _Utils_update(
 						model,
@@ -8470,7 +8789,7 @@ var author$project$Main$update = F2(
 								elm$core$List$length(
 									author$project$Main$noMestre(model.guessBreak.tracks)) - 1)));
 				case 'SelectQuestionTrack':
-					var diceRoll = _n0.a;
+					var diceRoll = msg.a;
 					var guessTrack = function () {
 						var _n7 = A2(
 							elm$core$Array$get,
@@ -8515,14 +8834,12 @@ var author$project$Main$update = F2(
 								elm_community$random_extra$Random$List$choose(
 									author$project$Main$noMestre(_break.tracks))));
 					} else {
-						var $temp$msg = author$project$Main$SetQuestionStartTime,
-							$temp$model = model;
-						msg = $temp$msg;
-						model = $temp$model;
-						continue update;
+						return _Utils_Tuple2(
+							model,
+							A2(elm$core$Task$perform, author$project$Main$SetQuestionStartTime, elm$time$Time$now));
 					}
 				case 'RandomAnswerTrack':
-					var _n9 = _n0.a;
+					var _n9 = msg.a;
 					var selected = _n9.a;
 					var remaining = _n9.b;
 					var trackToAdd = function () {
@@ -8544,47 +8861,110 @@ var author$project$Main$update = F2(
 					model = $temp$model;
 					continue update;
 				case 'SetQuestionStartTime':
-					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{questionStartTime: model.time}),
-						A2(
-							elm$core$Task$attempt,
-							author$project$Main$FocusResult,
-							elm$browser$Browser$Dom$focus('answerInput')));
-				case 'FocusResult':
-					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-				case 'UpdateTextFieldAnswer':
-					var answer = _n0.a;
+					var time = msg.a;
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
 							{
-								matchScore: A2(author$project$Main$matchTextAnswer, answer, model.guessBreak.name),
-								textAnswer: answer
+								questionStartTime: elm$time$Time$posixToMillis(time)
 							}),
+						A2(
+							elm$core$Task$attempt,
+							author$project$Main$FocusResult,
+							elm$browser$Browser$Dom$focus('answer-input')));
+				case 'FocusResult':
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				case 'UpdateTextFieldAnswer':
+					var answer = msg.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{textAnswer: answer}),
 						elm$core$Platform$Cmd$none);
 				case 'CheckTextFieldAnswer':
-					var $temp$msg = author$project$Main$Advance(
+					var $temp$msg = A3(
+						author$project$Main$TimeQuestion,
+						model.textAnswer,
+						'',
 						A2(author$project$Main$matchTextAnswer, model.textAnswer, model.guessBreak.name) < 100),
 						$temp$model = model;
 					msg = $temp$msg;
 					model = $temp$model;
 					continue update;
 				case 'CheckAnswer':
-					var answer = _n0.a;
-					var $temp$msg = author$project$Main$Advance(
+					var answer = msg.a;
+					var $temp$msg = A2(author$project$Main$CheckTrackAnswer, answer, ''),
+						$temp$model = model;
+					msg = $temp$msg;
+					model = $temp$model;
+					continue update;
+				case 'CheckTrackAnswer':
+					var answer = msg.a;
+					var track = msg.b;
+					var $temp$msg = A3(
+						author$project$Main$TimeQuestion,
+						answer,
+						track,
 						_Utils_eq(answer, model.guessBreak.name)),
 						$temp$model = model;
 					msg = $temp$msg;
 					model = $temp$model;
 					continue update;
+				case 'TimeQuestion':
+					var answer = msg.a;
+					var track = msg.b;
+					var isCorrect = msg.c;
+					return _Utils_Tuple2(
+						model,
+						A2(
+							elm$core$Task$perform,
+							A3(author$project$Main$Advance, answer, track, isCorrect),
+							elm$time$Time$now));
 				case 'Advance':
-					var isCorrect = _n0.a;
+					var answer = msg.a;
+					var track = msg.b;
+					var isCorrect = msg.c;
+					var time = msg.d;
+					var guessTrack = function () {
+						var _n12 = model.questionName;
+						switch (_n12) {
+							case 'trackToName':
+								return model.guessTrack.id;
+							case 'trackToSign':
+								return model.guessTrack.id;
+							default:
+								return '';
+						}
+					}();
+					var currentQuestion = {
+						chrono: elm$time$Time$posixToMillis(time) - model.questionStartTime,
+						question: {_break: model.guessBreak.name, questionType: model.questionName, track: guessTrack},
+						userAnswer: {_break: answer, track: track}
+					};
+					var currentSession = function () {
+						var _n11 = model.currentSession;
+						if (_n11.$ === 'Just') {
+							var session = _n11.a;
+							return elm$core$Maybe$Just(
+								_Utils_update(
+									session,
+									{
+										questions: _Utils_ap(
+											session.questions,
+											_List_fromArray(
+												[currentQuestion]))
+									}));
+						} else {
+							return elm$core$Maybe$Nothing;
+						}
+					}();
+					var newModel = _Utils_update(
+						model,
+						{currentSession: currentSession});
 					if (isCorrect) {
 						var $temp$msg = author$project$Main$DrawQuestionType,
 							$temp$model = _Utils_update(
-							model,
+							newModel,
 							{correctAnswers: model.correctAnswers + 1});
 						msg = $temp$msg;
 						model = $temp$model;
@@ -8592,26 +8972,82 @@ var author$project$Main$update = F2(
 					} else {
 						if (!_Utils_eq(model.mode, author$project$Main$Streak)) {
 							var $temp$msg = author$project$Main$DrawQuestionType,
-								$temp$model = model;
+								$temp$model = newModel;
 							msg = $temp$msg;
 							model = $temp$model;
 							continue update;
 						} else {
 							var $temp$msg = author$project$Main$Stop,
-								$temp$model = model;
+								$temp$model = newModel;
 							msg = $temp$msg;
 							model = $temp$model;
 							continue update;
 						}
 					}
-				default:
+				case 'Stop':
 					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{endTime: model.time, state: author$project$Main$End}),
-						elm$core$Platform$Cmd$none);
+						model,
+						A2(elm$core$Task$perform, author$project$Main$SetStopTime, elm$time$Time$now));
+				default:
+					var time = msg.a;
+					var tempUserData = model.userData;
+					var currentSession = function () {
+						var _n14 = model.currentSession;
+						if (_n14.$ === 'Just') {
+							var session = _n14.a;
+							return elm$core$Maybe$Just(
+								_Utils_update(
+									session,
+									{
+										stopTime: elm$time$Time$posixToMillis(time)
+									}));
+						} else {
+							return elm$core$Maybe$Nothing;
+						}
+					}();
+					var v1 = function () {
+						if (currentSession.$ === 'Just') {
+							var session = currentSession.a;
+							return _Utils_ap(
+								model.userData.v1,
+								_List_fromArray(
+									[session]));
+						} else {
+							return model.userData.v1;
+						}
+					}();
+					var userData = _Utils_update(
+						tempUserData,
+						{v1: v1});
+					var newModel = _Utils_update(
+						model,
+						{
+							currentSession: currentSession,
+							state: author$project$Main$End,
+							stopTime: elm$time$Time$posixToMillis(time),
+							userData: userData
+						});
+					return _Utils_Tuple2(
+						newModel,
+						author$project$Main$setStorage(
+							author$project$Main$encode(newModel.userData)));
 			}
 		}
+	});
+var author$project$Main$updateWithStorage = F2(
+	function (msg, oldModel) {
+		var _n0 = A2(author$project$Main$update, msg, oldModel);
+		var newModel = _n0.a;
+		var cmds = _n0.b;
+		return _Utils_Tuple2(
+			newModel,
+			elm$core$Platform$Cmd$batch(
+				_List_fromArray(
+					[
+						author$project$Main$setStorage(
+						author$project$Main$encode(newModel.userData)),
+						cmds
+					])));
 	});
 var author$project$Main$SetLevel = function (a) {
 	return {$: 'SetLevel', a: a};
@@ -8683,7 +9119,7 @@ var author$project$Main$renderPrompt = function (model) {
 			case 'Training':
 				return author$project$Main$formatMode(model.mode);
 			case 'Streak':
-				return author$project$Main$formatMode(model.mode) + (' - ' + (elm$core$String$fromInt(model.correctAnswers) + ' bonnes réponses d\'affilée'));
+				return author$project$Main$formatMode(model.mode) + (' - ' + (elm$core$String$fromInt(model.correctAnswers) + ' d\'affilée'));
 			default:
 				return author$project$Main$formatMode(model.mode) + (' - ' + author$project$Main$formatTime(author$project$Main$timeAttack - (model.time - model.startTime)));
 		}
@@ -8697,19 +9133,33 @@ var author$project$Main$renderPrompt = function (model) {
 		_List_fromArray(
 			[
 				A2(
-				elm$html$Html$div,
-				_List_Nil,
+				elm$html$Html$button,
 				_List_fromArray(
 					[
-						elm$html$Html$text(
-						'Niveau : ' + author$project$Main$formatLevel(model.level))
+						elm$html$Html$Attributes$class('demotivator-nav-button'),
+						elm$html$Html$Events$onClick(author$project$Main$Reset)
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Retour au menu')
 					])),
 				A2(
 				elm$html$Html$div,
 				_List_Nil,
 				_List_fromArray(
 					[
-						elm$html$Html$text('Mode : ' + modeText)
+						elm$html$Html$text(modeText)
+					])),
+				A2(
+				elm$html$Html$button,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('demotivator-nav-button'),
+						elm$html$Html$Events$onClick(author$project$Main$Stop)
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Arrêter là')
 					]))
 			]));
 };
@@ -8909,6 +9359,14 @@ var author$project$Main$renderScore = F4(
 						]));
 		}
 	});
+var elm$html$Html$a = _VirtualDom_node('a');
+var elm$html$Html$hr = _VirtualDom_node('hr');
+var elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
 var author$project$Main$view = function (model) {
 	var _n0 = model.state;
 	switch (_n0.$) {
@@ -9083,6 +9541,26 @@ var author$project$Main$view = function (model) {
 													]))
 											]))
 									]))
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$id('back-button-container')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$a,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$id('menu-back-button'),
+										elm$html$Html$Attributes$href('./index.html')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Retour au Jukebox')
+									]))
 							]))
 					]));
 		case 'SelectLevel':
@@ -9256,6 +9734,26 @@ var author$project$Main$view = function (model) {
 													]))
 											]))
 									]))
+							])),
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$id('back-button-container')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$button,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$id('menu-back-button'),
+										elm$html$Html$Events$onClick(author$project$Main$Reset)
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Changer le mode')
+									]))
 							]))
 					]));
 		case 'Play':
@@ -9265,18 +9763,8 @@ var author$project$Main$view = function (model) {
 				_List_fromArray(
 					[
 						author$project$Main$renderPrompt(model),
-						author$project$Main$renderQuestion(model),
-						A2(
-						elm$html$Html$button,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('nav-button'),
-								elm$html$Html$Events$onClick(author$project$Main$Stop)
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text('Arrêter là')
-							]))
+						A2(elm$html$Html$hr, _List_Nil, _List_Nil),
+						author$project$Main$renderQuestion(model)
 					]));
 		default:
 			return A2(
@@ -9333,7 +9821,7 @@ var author$project$Main$view = function (model) {
 								elm$html$Html$text(
 								'Tu avais choisi le niveau ' + author$project$Main$formatLevel(model.level))
 							])),
-						A4(author$project$Main$renderScore, model.mode, model.correctAnswers, model.questionsAsked - 1, model.endTime - model.startTime),
+						A4(author$project$Main$renderScore, model.mode, model.correctAnswers, model.questionsAsked - 1, model.stopTime - model.startTime),
 						A2(
 						elm$html$Html$button,
 						_List_fromArray(
@@ -9349,7 +9837,6 @@ var author$project$Main$view = function (model) {
 	}
 };
 var elm$browser$Browser$element = _Browser_element;
-var elm$json$Json$Decode$value = _Json_decodeValue;
 var author$project$Main$main = elm$browser$Browser$element(
-	{init: author$project$Main$init, subscriptions: author$project$Main$subscriptions, update: author$project$Main$update, view: author$project$Main$view});
+	{init: author$project$Main$init, subscriptions: author$project$Main$subscriptions, update: author$project$Main$updateWithStorage, view: author$project$Main$view});
 _Platform_export({'Main':{'init':author$project$Main$main(elm$json$Json$Decode$value)(0)}});}(this));
