@@ -554,6 +554,56 @@
       }
     ]
   },
+  "earth_wind_fire": {
+    "name": "Earth, Wind & Fire",
+    "sign": "./breaks/earth_wind_fire/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/earth_wind_fire/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/earth_wind_fire/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/earth_wind_fire/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/earth_wind_fire/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/earth_wind_fire/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/earth_wind_fire/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/earth_wind_fire/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/earth_wind_fire/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/earth_wind_fire/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
   "namaste": {
     "name": "Namasté",
     "sign": "./breaks/namaste/signe.png",
@@ -745,56 +795,6 @@
       {
         "id": "surdo3",
         "audio": "./breaks/funk_salgueiro/surdo3.mp3",
-        "icon": "./assets/img/surdo3.png"
-      }
-    ]
-  },
-  "earth_wind_fire": {
-    "name": "Earth, Wind & Fire",
-    "sign": "./breaks/earth_wind_fire/signe.png",
-    "published": false,
-    "new": false,
-    "mix": "./breaks/earth_wind_fire/mix.mp3",
-    "tracks":
-    [
-      {
-        "id": "mestre",
-        "audio": "./breaks/earth_wind_fire/mestre.mp3",
-        "icon": "./assets/img/mestre.png"
-      },
-      {
-        "id": "agogo",
-        "audio": "./breaks/earth_wind_fire/agogo.mp3",
-        "icon": "./assets/img/agogo.png"
-      },
-      {
-        "id": "tamborim",
-        "audio": "./breaks/earth_wind_fire/tamborim.mp3",
-        "icon": "./assets/img/tamborim.png"
-      },
-      {
-        "id": "caisse",
-        "audio": "./breaks/earth_wind_fire/caisse.mp3",
-        "icon": "./assets/img/caisse.png"
-      },
-      {
-        "id": "repique",
-        "audio": "./breaks/earth_wind_fire/repique.mp3",
-        "icon": "./assets/img/repique.png"
-      },
-      {
-        "id": "surdo1",
-        "audio": "./breaks/earth_wind_fire/surdo1.mp3",
-        "icon": "./assets/img/surdo1.png"
-      },
-      {
-        "id": "surdo2",
-        "audio": "./breaks/earth_wind_fire/surdo2.mp3",
-        "icon": "./assets/img/surdo2.png"
-      },
-      {
-        "id": "surdo3",
-        "audio": "./breaks/earth_wind_fire/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
