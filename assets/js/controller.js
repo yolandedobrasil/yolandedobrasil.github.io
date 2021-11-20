@@ -83,7 +83,7 @@ function playPause() {
 function seekTo(progress) {
   players.forEach(function(player) {
     let currentProgress = player.getCurrentTime()/player.getDuration()
-    if(Math.abs(currentProgress-progress) > 0.01) { // avoid recursive events
+    if(Math.abs(currentProgress-progress) > 0.001) { // avoid recursive events
       player.seekTo(progress)
     }
   })
