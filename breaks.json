@@ -73,6 +73,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/g/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/g/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
@@ -178,6 +183,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/imperatriz_2/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/imperatriz_2/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
@@ -226,6 +236,11 @@
         "id": "agogo",
         "audio": "./breaks/viradouro_2003/agogo.mp3",
         "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/viradouro_2003/choca.mp3",
+        "icon": "./assets/img/choca.png"
       },
       {
         "id": "tamborim",
@@ -278,6 +293,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/viradouro_tete/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/viradouro_tete/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
@@ -326,6 +346,11 @@
         "id": "agogo",
         "audio": "./breaks/vague/agogo.mp3",
         "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/vague/choca.mp3",
+        "icon": "./assets/img/choca.png"
       },
       {
         "id": "tamborim",
@@ -378,6 +403,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/pilou/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/pilou/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
@@ -426,6 +456,11 @@
         "id": "agogo",
         "audio": "./breaks/pilou-petit/agogo.mp3",
         "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/pilou-petit/choca.mp3",
+        "icon": "./assets/img/choca.png"
       },
       {
         "id": "tamborim",
@@ -478,6 +513,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/pilou-grand/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/pilou-grand/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
@@ -528,6 +568,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/pilou-1234/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/pilou-1234/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
@@ -576,6 +621,11 @@
         "id": "agogo",
         "audio": "./breaks/grande_rio/agogo.mp3",
         "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/grande_rio/choca.mp3",
+        "icon": "./assets/img/choca.png"
       },
       {
         "id": "tamborim",
@@ -683,6 +733,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/namaste/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/namaste/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
@@ -731,6 +786,11 @@
         "id": "agogo",
         "audio": "./breaks/poings/agogo.mp3",
         "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/poings/choca.mp3",
+        "icon": "./assets/img/choca.png"
       },
       {
         "id": "tamborim",
@@ -833,6 +893,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/yolandetuq/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/yolandetuq/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
@@ -876,6 +941,11 @@
         "id": "agogo",
         "audio": "./breaks/funk_salgueiro/agogo.mp3",
         "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/funk_salgueiro/choca.mp3",
+        "icon": "./assets/img/choca.png"
       },
       {
         "id": "tamborim",
