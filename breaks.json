@@ -754,6 +754,56 @@
       }
     ]
   },
+  "funk_tijuca": {
+    "name": "Funk Tijuca",
+    "sign": "./breaks/funk_tijuca/signe.png",
+    "published": false,
+    "new": true,
+    "mix": "./breaks/funk_tijuca/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/funk_tijuca/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/funk_tijuca/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/funk_tijuca/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/funk_tijuca/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/funk_tijuca/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/funk_tijuca/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/funk_tijuca/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/funk_tijuca/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
   "yolandetuq": {
     "name": "Yolandetuq",
     "sign": "./breaks/yolandetuq/signe.png",
