@@ -18,6 +18,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/1/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/1/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
