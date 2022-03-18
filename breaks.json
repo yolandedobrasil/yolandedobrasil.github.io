@@ -628,6 +628,11 @@
         "icon": "./assets/img/agogo.png"
       },
       {
+        "id": "choca",
+        "audio": "./breaks/earth_wind_fire/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
         "id": "tamborim",
         "audio": "./breaks/earth_wind_fire/tamborim.mp3",
         "icon": "./assets/img/tamborim.png"
