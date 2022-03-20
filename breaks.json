@@ -54,6 +54,156 @@
       }
     ]
   },
+  "2": {
+    "name": "Tourne 2",
+    "sign": "./breaks/2/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/2/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/2/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/2/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/2/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/2/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/2/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/2/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/2/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/2/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "2_diademe": {
+    "name": "Tourne 2 Diadème",
+    "sign": "./breaks/2_diademe/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/2_diademe/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/2_diademe/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/2_diademe/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/2_diademe/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/2_diademe/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/2_diademe/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/2_diademe/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/2_diademe/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/2_diademe/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "3": {
+    "name": "3",
+    "sign": "./breaks/3/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/3/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/3/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/3/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/3/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/3/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/3/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/3/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/3/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/3/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
   "g": {
     "name": "Break G",
     "sign": "./breaks/g/signe.png",
@@ -270,6 +420,61 @@
       {
         "id": "surdo3",
         "audio": "./breaks/viradouro_2003/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "funk": {
+    "name": "Funk",
+    "sign": "./breaks/funk/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/funk/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/funk/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/funk/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/funk/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/funk/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/funk/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/funk/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/funk/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/funk/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/funk/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
@@ -827,7 +1032,7 @@
   "funk_tijuca": {
     "name": "Funk Tijuca",
     "sign": "./breaks/funk_tijuca/signe.png",
-    "published": false,
+    "published": true,
     "new": true,
     "mix": "./breaks/funk_tijuca/mix.mp3",
     "tracks":
@@ -838,7 +1043,7 @@
         "icon": "./assets/img/mestre.png"
       },
       {
-        "id": "agogo",
+        "id": "choca",
         "audio": "./breaks/funk_tijuca/choca.mp3",
         "icon": "./assets/img/choca.png"
       },
@@ -975,6 +1180,156 @@
       {
         "id": "surdo3",
         "audio": "./breaks/funk_salgueiro/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "afrobeat_salgueiro": {
+    "name": "Afrobeat Salgueiro",
+    "sign": "./breaks/afrobeat_salgueiro/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/afrobeat_salgueiro/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/afrobeat_salgueiro/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/afrobeat_salgueiro/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/afrobeat_salgueiro/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/afrobeat_salgueiro/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/afrobeat_salgueiro/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/afrobeat_salgueiro/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/afrobeat_salgueiro/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "portela": {
+    "name": "Portela",
+    "sign": "./breaks/portela/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/portela/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/portela/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/portela/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/portela/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/portela/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/portela/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/portela/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/portela/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/portela/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "jungle": {
+    "name": "Jungle",
+    "sign": "./breaks/jungle/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/jungle/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/jungle/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/jungle/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/jungle/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/jungle/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/jungle/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/jungle/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/jungle/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/jungle/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/jungle/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
