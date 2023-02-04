@@ -58,7 +58,7 @@
     "name": "Tourne 2",
     "sign": "./breaks/2/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/2/mix.mp3",
     "tracks":
     [
@@ -108,7 +108,7 @@
     "name": "Tourne 2 Diadème",
     "sign": "./breaks/2_diademe/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/2_diademe/mix.mp3",
     "tracks":
     [
@@ -158,7 +158,7 @@
     "name": "3",
     "sign": "./breaks/3/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/3/mix.mp3",
     "tracks":
     [
@@ -268,7 +268,7 @@
     "name": "Imperatriz",
     "sign": "./breaks/imperatriz/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/imperatriz/mix.mp3",
     "tracks":
     [
@@ -428,7 +428,7 @@
     "name": "Funk",
     "sign": "./breaks/funk/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/funk/mix.mp3",
     "tracks":
     [
@@ -1033,7 +1033,7 @@
     "name": "Funk Tijuca",
     "sign": "./breaks/funk_tijuca/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/funk_tijuca/mix.mp3",
     "tracks":
     [
@@ -1188,7 +1188,7 @@
     "name": "Afrobeat Salgueiro",
     "sign": "./breaks/afrobeat_salgueiro/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/afrobeat_salgueiro/mix.mp3",
     "tracks":
     [
@@ -1233,7 +1233,7 @@
     "name": "Portela",
     "sign": "./breaks/portela/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/portela/mix.mp3",
     "tracks":
     [
@@ -1283,7 +1283,7 @@
     "name": "Jungle",
     "sign": "./breaks/jungle/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/jungle/mix.mp3",
     "tracks":
     [
@@ -1330,6 +1330,61 @@
       {
         "id": "surdo3",
         "audio": "./breaks/jungle/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
+  "furiosa": {
+    "name": "Furiosa (intro Salgueiro)",
+    "sign": "./breaks/furiosa/signe.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/furiosa/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/furiosa/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/furiosa/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/furiosa/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/furiosa/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/furiosa/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/furiosa/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/furiosa/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/furiosa/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/furiosa/surdo3.mp3",
         "icon": "./assets/img/surdo3.png"
       }
     ]
