@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bernay Quizz</title>
+    <script src="./assets/js/weekend.js"></script>
+    <link rel="stylesheet" href="assets/css/w3.css">
+    <link rel="stylesheet" href="assets/css/quizz.css">
+</head>
+
+<body>
+  <div id="content">
+    <div id="elm">
+    </div>
+  </div>
+    <script>
+    // Extract the stored data from previous sessions.
+    var rawData = localStorage.getItem('weekend-userdata');
+    var userData = rawData ? JSON.parse(rawData) : null
+
+    fetch("breaks.json")
+      .then(response => response.json())
+      .then(breaks => 
+        {
+          var flags =
+          {
+            breaks: breaks,
+            userData: userData
+          }
+          var app = Elm.Main.init({ node: document.getElementById('elm'), flags: flags });
+          app.ports.setStorage.subscribe
+          (
+            function(state) { localStorage.setItem('weekend-userdata', JSON.stringify(state)); }
+          );
+        }
+      );
+    </script>
+</body>
+
+</html>
