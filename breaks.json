@@ -1279,6 +1279,61 @@
       }
     ]
   },
+  "blocage_tambo": {
+    "name": "Blocage tamborim",
+    "sign": "./assets/img/yolande.png",
+    "published": true,
+    "new": true,
+    "mix": "./breaks/blocage_tambo/mix.mp3",
+    "tracks":
+    [
+      {
+        "id": "mestre",
+        "audio": "./breaks/blocage_tambo/mestre.mp3",
+        "icon": "./assets/img/mestre.png"
+      },
+      {
+        "id": "agogo",
+        "audio": "./breaks/blocage_tambo/agogo.mp3",
+        "icon": "./assets/img/agogo.png"
+      },
+      {
+        "id": "choca",
+        "audio": "./breaks/blocage_tambo/choca.mp3",
+        "icon": "./assets/img/choca.png"
+      },
+      {
+        "id": "tamborim",
+        "audio": "./breaks/blocage_tambo/tamborim.mp3",
+        "icon": "./assets/img/tamborim.png"
+      },
+      {
+        "id": "caisse",
+        "audio": "./breaks/blocage_tambo/caisse.mp3",
+        "icon": "./assets/img/caisse.png"
+      },
+      {
+        "id": "repique",
+        "audio": "./breaks/blocage_tambo/repique.mp3",
+        "icon": "./assets/img/repique.png"
+      },
+      {
+        "id": "surdo1",
+        "audio": "./breaks/blocage_tambo/surdo1.mp3",
+        "icon": "./assets/img/surdo1.png"
+      },
+      {
+        "id": "surdo2",
+        "audio": "./breaks/blocage_tambo/surdo2.mp3",
+        "icon": "./assets/img/surdo2.png"
+      },
+      {
+        "id": "surdo3",
+        "audio": "./breaks/blocage_tambo/surdo3.mp3",
+        "icon": "./assets/img/surdo3.png"
+      }
+    ]
+  },
   "jungle": {
     "name": "Jungle",
     "sign": "./breaks/jungle/signe.png",
@@ -1338,7 +1393,7 @@
     "name": "Furiosa (intro Salgueiro)",
     "sign": "./breaks/furiosa/signe.png",
     "published": true,
-    "new": true,
+    "new": false,
     "mix": "./breaks/furiosa/mix.mp3",
     "tracks":
     [
