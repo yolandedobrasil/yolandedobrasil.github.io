@@ -1281,7 +1281,7 @@
   },
   "blocage_tambo": {
     "name": "Blocage tamborim",
-    "sign": "./assets/img/yolande.png",
+    "sign": "./breaks/blocage_tambo/signe.png",
     "published": true,
     "new": true,
     "mix": "./breaks/blocage_tambo/mix.mp3",
