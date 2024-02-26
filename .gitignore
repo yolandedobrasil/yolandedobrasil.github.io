@@ -1,7 +1,11 @@
+rushs/
+*/rushs/
+*.MP3
+*.m4a
 *.aup
 *_data/
-*.MP3
-rushs/
 *.xcf
-*.m4a
 *.jpg
+*.pdf
+**/signe.svg
+export*
